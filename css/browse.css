@@ -1,0 +1,456 @@
+/* ── PAGE HEADER ─────────────────────────────────── */
+
+.page-header {
+  background: linear-gradient(135deg, #0f172a, #1e3a5f);
+  padding: 3rem 2rem;
+}
+
+.page-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: white;
+  letter-spacing: -0.5px;
+}
+
+.page-header p {
+  color: #94a3b8;
+  margin-top: 0.3rem;
+  font-size: 0.95rem;
+}
+
+/* ── SEARCH BAR ──────────────────────────────────── */
+
+.browse-search-bar {
+  background: white;
+  border-bottom: 1px solid var(--color-border);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 65px;
+  z-index: 50;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.browse-search-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.search-input-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: #f8fafc;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  min-width: 260px;
+}
+
+.search-icon {
+  padding: 0 0.75rem;
+  font-size: 1rem;
+}
+
+.search-input-wrap input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0.75rem 0.5rem;
+  font-size: 0.95rem;
+  font-family: var(--font-main);
+  color: var(--color-dark);
+}
+
+.search-input-wrap .btn {
+  border-radius: 0;
+  padding: 0.75rem 1.2rem;
+}
+
+.sort-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.sort-wrap label {
+  font-size: 0.875rem;
+  color: var(--color-grey);
+  font-weight: 500;
+}
+
+.sort-wrap select {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.9rem;
+  font-size: 0.875rem;
+  font-family: var(--font-main);
+  color: var(--color-dark);
+  background: white;
+  cursor: pointer;
+  outline: none;
+}
+
+.sort-wrap select:focus {
+  border-color: var(--color-primary);
+}
+
+/* ── BROWSE LAYOUT ───────────────────────────────── */
+
+.browse-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* ── FILTER SIDEBAR ──────────────────────────────── */
+
+.filter-sidebar {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  position: sticky;
+  top: 130px;
+}
+
+.filter-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.filter-sidebar-header h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.clear-filters-btn {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  font-family: var(--font-main);
+}
+
+.clear-filters-btn:hover {
+  text-decoration: underline;
+}
+
+.filter-group {
+  border-top: 1px solid var(--color-border);
+  padding: 1.25rem 0;
+}
+
+.filter-group h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.9rem;
+}
+
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.filter-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--color-grey);
+  transition: color 0.15s;
+}
+
+.filter-checkbox:hover {
+  color: var(--color-dark);
+}
+
+.filter-checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Size buttons */
+.size-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.size-btn {
+  cursor: pointer;
+}
+
+.size-btn input {
+  display: none;
+}
+
+.size-btn span {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-grey);
+  transition: all 0.15s;
+  user-select: none;
+}
+
+.size-btn input:checked + span {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: white;
+}
+
+.size-btn:hover span {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* Price inputs */
+.price-inputs {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.price-inputs input {
+  flex: 1;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.5rem 0.6rem;
+  font-size: 0.875rem;
+  font-family: var(--font-main);
+  color: var(--color-dark);
+  outline: none;
+  width: 0;
+}
+
+.price-inputs input:focus {
+  border-color: var(--color-primary);
+}
+
+.price-inputs span {
+  color: var(--color-grey);
+  font-size: 0.9rem;
+}
+
+.close-filters-btn {
+  display: none;
+  width: 100%;
+  margin-top: 1.5rem;
+  justify-content: center;
+}
+
+/* ── BROWSE MAIN ─────────────────────────────────── */
+
+.browse-main {
+  min-width: 0;
+}
+
+/* Active filter tags */
+.active-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.filter-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #15803d;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.filter-tag button {
+  background: none;
+  border: none;
+  color: #15803d;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Results meta */
+.results-meta {
+  font-size: 0.875rem;
+  color: var(--color-grey);
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+}
+
+/* Listings grid — reuses listing-card styles from home.css */
+.listings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 5rem 2rem;
+  color: var(--color-grey);
+}
+
+.empty-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.empty-state h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* Load more */
+.load-more-wrap {
+  text-align: center;
+  margin-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+/* ── MOBILE FILTER TOGGLE ────────────────────────── */
+
+.mobile-filter-toggle {
+  display: none;
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+  background: var(--color-dark);
+  color: white;
+  border: none;
+  padding: 0.85rem 2rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+  font-family: var(--font-main);
+}
+
+.filter-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 150;
+}
+
+/* ── ACTIVE NAV LINK ─────────────────────────────── */
+
+.nav-links a.active {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* ── RESPONSIVE ──────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .browse-layout {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+
+  .filter-sidebar {
+    position: fixed;
+    top: 0;
+    left: -320px;
+    height: 100vh;
+    width: 300px;
+    z-index: 200;
+    overflow-y: auto;
+    border-radius: 0;
+    transition: left 0.3s ease;
+    box-shadow: 4px 0 24px rgba(0,0,0,0.15);
+  }
+
+  .filter-sidebar.open {
+    left: 0;
+  }
+
+  .filter-overlay.open {
+    display: block;
+  }
+
+  .close-filters-btn {
+    display: flex;
+  }
+
+  .mobile-filter-toggle {
+    display: block;
+  }
+
+  .browse-search-bar {
+    top: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .browse-search-inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .sort-wrap {
+    justify-content: flex-end;
+  }
+
+  .page-header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

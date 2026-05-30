@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Messages — KitSwap</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/messages.css" />
+  </head>
+
+  <body>
+
+    <!-- ── NAVIGATION ───────────────────────────── -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">⚽ KitSwap</a>
+        <ul class="nav-links">
+          <li><a href="browse.html">Browse</a></li>
+          <li><a href="sell.html">Sell a Shirt</a></li>
+          <li><a href="forum.html">Community</a></li>
+        </ul>
+        <div class="nav-auth">
+          <a href="login.html" class="btn btn-outline">Log In</a>
+          <a href="register.html" class="btn btn-primary">Sign Up</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ── MESSAGES LAYOUT ───────────────────────── -->
+    <div class="messages-layout">
+
+      <!-- ── LEFT: INBOX SIDEBAR ──────────────────── -->
+      <aside class="inbox-sidebar" id="inboxSidebar">
+
+        <div class="inbox-header">
+          <h2>Messages</h2>
+          <span class="inbox-unread-total" id="inboxUnreadTotal"></span>
+        </div>
+
+        <div class="inbox-search">
+          <span class="inbox-search-icon">🔍</span>
+          <input type="text" id="inboxSearch" placeholder="Search conversations..."
+                 oninput="filterConversations(this.value)" />
+        </div>
+
+        <div class="inbox-tabs">
+          <button class="inbox-tab active" onclick="switchInboxTab('all', this)">All</button>
+          <button class="inbox-tab" onclick="switchInboxTab('unread', this)">Unread</button>
+          <button class="inbox-tab" onclick="switchInboxTab('buying', this)">Buying</button>
+          <button class="inbox-tab" onclick="switchInboxTab('selling', this)">Selling</button>
+        </div>
+
+        <div class="conversation-list" id="conversationList"></div>
+
+      </aside>
+
+      <!-- ── RIGHT: CHAT WINDOW ────────────────────── -->
+      <main class="chat-window" id="chatWindow">
+
+        <!-- Empty state (no chat selected) -->
+        <div class="chat-empty" id="chatEmpty">
+          <div class="chat-empty-icon">💬</div>
+          <h3>Your Messages</h3>
+          <p>Select a conversation to start chatting with a buyer or seller.</p>
+        </div>
+
+        <!-- Active chat -->
+        <div class="chat-active" id="chatActive" style="display:none;">
+
+          <!-- Chat header -->
+          <div class="chat-header" id="chatHeader">
+            <button class="chat-back-btn" id="chatBackBtn" onclick="showInbox()">← Back</button>
+            <div class="chat-header-user" id="chatHeaderUser"></div>
+            <div class="chat-header-actions">
+              <button class="chat-action-btn" title="View profile" onclick="viewSellerProfile()">👤</button>
+              <button class="chat-action-btn" title="Report" onclick="reportUser()">🚩</button>
+            </div>
+          </div>
+
+          <!-- Listing reference card -->
+          <div class="chat-listing-ref" id="chatListingRef"></div>
+
+          <!-- Messages area -->
+          <div class="chat-messages" id="chatMessages"></div>
+
+          <!-- Input area -->
+          <div class="chat-input-area">
+            <div class="chat-quick-replies" id="quickReplies"></div>
+            <div class="chat-input-row">
+              <button class="chat-attach-btn" title="Attach image" onclick="alert('Image attachments coming with Supabase Storage!')">📎</button>
+              <textarea
+                id="chatInput"
+                placeholder="Type a message..."
+                rows="1"
+                onkeydown="handleChatKey(event)"
+                oninput="autoResize(this)"
+              ></textarea>
+              <button class="chat-send-btn" id="chatSendBtn" onclick="sendMessage()">Send</button>
+            </div>
+            <p class="chat-disclaimer">Keep all transactions on KitSwap for buyer protection. Never share payment details outside the platform.</p>
+          </div>
+
+        </div>
+      </main>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/messages.js"></script>
+  </body>
+</html>

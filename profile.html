@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile — KitSwap</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/profile.css" />
+  </head>
+
+  <body>
+
+    <!-- ── NAVIGATION ───────────────────────────── -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">⚽ KitSwap</a>
+        <ul class="nav-links">
+          <li><a href="browse.html">Browse</a></li>
+          <li><a href="sell.html">Sell a Shirt</a></li>
+          <li><a href="forum.html">Community</a></li>
+        </ul>
+        <div class="nav-auth">
+          <a href="login.html" class="btn btn-outline">Log In</a>
+          <a href="register.html" class="btn btn-primary">Sign Up</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ── PROFILE HEADER ────────────────────────── -->
+    <div class="profile-header-wrap">
+      <div class="profile-header-inner">
+
+        <!-- Avatar -->
+        <div class="profile-avatar" id="profileAvatar">R</div>
+
+        <!-- Info -->
+        <div class="profile-info">
+          <div class="profile-name-row">
+            <h1 id="profileName">RetroKitKing</h1>
+            <span class="verified-badge" id="verifiedBadge" style="display:none">✓ Verified</span>
+          </div>
+          <div class="profile-meta" id="profileMeta"></div>
+          <div class="profile-rating-row" id="profileRatingRow"></div>
+          <div class="profile-tags" id="profileTags"></div>
+        </div>
+
+        <!-- Actions -->
+        <div class="profile-actions" id="profileActions"></div>
+
+      </div>
+
+      <!-- Stats bar -->
+      <div class="profile-stats" id="profileStats"></div>
+    </div>
+
+    <!-- ── TAB NAVIGATION ────────────────────────── -->
+    <div class="profile-tabs-bar">
+      <div class="profile-tabs-inner">
+        <button class="profile-tab active" onclick="switchTab('listings', this)">
+          👕 Listings <span class="tab-count" id="listingsCount"></span>
+        </button>
+        <button class="profile-tab" onclick="switchTab('reviews', this)">
+          ⭐ Reviews <span class="tab-count" id="reviewsCount"></span>
+        </button>
+        <button class="profile-tab" onclick="switchTab('about', this)">
+          👤 About
+        </button>
+      </div>
+    </div>
+
+    <!-- ── PROFILE BODY ───────────────────────────── -->
+    <div class="profile-body">
+
+      <!-- LISTINGS TAB -->
+      <div class="profile-tab-content active" id="tab-listings">
+        <div class="tab-toolbar">
+          <div class="tab-toolbar-left">
+            <select id="listingsFilter" onchange="filterListings(this.value)">
+              <option value="all">All Listings</option>
+              <option value="sell">For Sale</option>
+              <option value="swap">Swap Only</option>
+            </select>
+          </div>
+          <div class="tab-toolbar-right" id="sellCTA"></div>
+        </div>
+        <div class="listings-grid" id="profileListings"></div>
+        <div class="empty-state" id="listingsEmpty" style="display:none">
+          <div class="empty-icon">👕</div>
+          <h3>No listings yet</h3>
+          <p>This collector hasn't listed any shirts yet.</p>
+        </div>
+      </div>
+
+      <!-- REVIEWS TAB -->
+      <div class="profile-tab-content" id="tab-reviews">
+        <div class="reviews-summary" id="reviewsSummary"></div>
+        <div class="reviews-list"    id="reviewsList"></div>
+        <div class="empty-state" id="reviewsEmpty" style="display:none">
+          <div class="empty-icon">⭐</div>
+          <h3>No reviews yet</h3>
+          <p>This seller hasn't received any reviews yet.</p>
+        </div>
+      </div>
+
+      <!-- ABOUT TAB -->
+      <div class="profile-tab-content" id="tab-about">
+        <div class="about-grid" id="aboutGrid"></div>
+      </div>
+
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/profile.js"></script>
+  </body>
+</html>

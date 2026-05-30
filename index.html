@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KitSwap — Football Shirt Marketplace</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/home.css" />
+  </head>
+
+  <body>
+
+    <!-- ── NAVIGATION ───────────────────────────── -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">⚽ KitSwap</a>
+        <ul class="nav-links">
+          <li><a href="browse.html">Browse</a></li>
+          <li><a href="sell.html">Sell a Shirt</a></li>
+          <li><a href="forum.html">Community</a></li>
+        </ul>
+        <div class="nav-auth">
+          <a href="login.html" class="btn btn-outline">Log In</a>
+          <a href="register.html" class="btn btn-primary">Sign Up</a>
+        </div>
+        <!-- Mobile hamburger -->
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ── HERO ──────────────────────────────────── -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">🏆 #1 Football Shirt Marketplace</div>
+        <h1>Buy, Sell &amp; Swap <br /><span>Football Shirts</span></h1>
+        <p>The dedicated marketplace for football shirt collectors.
+           Find rare kits, sell your duplicates, or swap with fellow fans worldwide.</p>
+        <div class="hero-buttons">
+          <a href="browse.html" class="btn btn-primary btn-large">Browse Shirts</a>
+          <a href="sell.html" class="btn btn-outline btn-large">Sell a Shirt</a>
+        </div>
+        <div class="hero-search">
+          <input type="text" placeholder="Search by club, player, season..." id="heroSearch" />
+          <button class="btn btn-primary" onclick="handleSearch()">Search</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── STATS BAR ──────────────────────────────── -->
+    <section class="stats-bar">
+      <div class="stats-container">
+        <div class="stat-item">
+          <span class="stat-number">12,400+</span>
+          <span class="stat-label">Shirts Listed</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">8,200+</span>
+          <span class="stat-label">Collectors</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">95%</span>
+          <span class="stat-label">Positive Ratings</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">60+</span>
+          <span class="stat-label">Countries</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CATEGORIES ─────────────────────────────── -->
+    <section class="section categories-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2>Browse by Category</h2>
+          <p>Find exactly what you're looking for</p>
+        </div>
+        <div class="categories-grid">
+          <a href="browse.html?cat=premier-league" class="category-card">
+            <div class="category-icon">🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
+            <h3>Premier League</h3>
+            <span>3,200+ shirts</span>
+          </a>
+          <a href="browse.html?cat=la-liga" class="category-card">
+            <div class="category-icon">🇪🇸</div>
+            <h3>La Liga</h3>
+            <span>1,800+ shirts</span>
+          </a>
+          <a href="browse.html?cat=serie-a" class="category-card">
+            <div class="category-icon">🇮🇹</div>
+            <h3>Serie A</h3>
+            <span>1,400+ shirts</span>
+          </a>
+          <a href="browse.html?cat=bundesliga" class="category-card">
+            <div class="category-icon">🇩🇪</div>
+            <h3>Bundesliga</h3>
+            <span>1,100+ shirts</span>
+          </a>
+          <a href="browse.html?cat=national" class="category-card">
+            <div class="category-icon">🌍</div>
+            <h3>National Teams</h3>
+            <span>2,100+ shirts</span>
+          </a>
+          <a href="browse.html?cat=retro" class="category-card category-card--highlight">
+            <div class="category-icon">📼</div>
+            <h3>Retro &amp; Vintage</h3>
+            <span>2,800+ shirts</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FEATURED LISTINGS ───────────────────────── -->
+    <section class="section listings-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2>Recently Listed</h2>
+          <a href="browse.html" class="section-link">View all →</a>
+        </div>
+        <div class="listings-grid" id="featuredListings">
+          <!-- Cards are injected by JS (later Supabase, for now placeholder) -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ── HOW IT WORKS ───────────────────────────── -->
+    <section class="section how-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2>How KitSwap Works</h2>
+          <p>Simple, safe and built for collectors</p>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <div class="step-icon">📸</div>
+            <h3>List Your Shirt</h3>
+            <p>Upload photos, set your price or swap preference, and publish your listing in under 2 minutes.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <div class="step-icon">💬</div>
+            <h3>Connect with Buyers</h3>
+            <p>Receive offers, chat directly with interested collectors, and agree on the deal that works for you.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <div class="step-icon">🔒</div>
+            <h3>Safe &amp; Secure</h3>
+            <p>Payments are protected, sellers are rated, and every transaction is backed by our buyer guarantee.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── COMMUNITY BANNER ───────────────────────── -->
+    <section class="community-banner">
+      <div class="community-content">
+        <h2>Join the Community</h2>
+        <p>Connect with thousands of collectors. Share your collection, discuss rare finds, and get advice from fellow fans.</p>
+        <a href="forum.html" class="btn btn-primary btn-large">Visit the Forum</a>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ─────────────────────────────────── -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">⚽ KitSwap</a>
+          <p>The dedicated marketplace for football shirt collectors worldwide.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Marketplace</h4>
+            <ul>
+              <li><a href="browse.html">Browse Shirts</a></li>
+              <li><a href="sell.html">Sell a Shirt</a></li>
+              <li><a href="browse.html?type=swap">Swap Shirts</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Community</h4>
+            <ul>
+              <li><a href="forum.html">Forum</a></li>
+              <li><a href="forum.html?cat=news">News</a></li>
+              <li><a href="forum.html?cat=showcase">Showcase</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="#">Help Centre</a></li>
+              <li><a href="#">Buyer Protection</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 KitSwap. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ── SCRIPTS ─────────────────────────────────── -->
+     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+    <script src="js/main.js"></script>
+
+  </body>
+</html>

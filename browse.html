@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Browse Shirts — KitSwap</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/browse.css" />
+  </head>
+
+  <body>
+
+    <!-- ── NAVIGATION ───────────────────────────── -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">⚽ KitSwap</a>
+        <ul class="nav-links">
+          <li><a href="browse.html" class="active">Browse</a></li>
+          <li><a href="sell.html">Sell a Shirt</a></li>
+          <li><a href="forum.html">Community</a></li>
+        </ul>
+        <div class="nav-auth">
+          <a href="login.html" class="btn btn-outline">Log In</a>
+          <a href="register.html" class="btn btn-primary">Sign Up</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ── PAGE HEADER ───────────────────────────── -->
+    <div class="page-header">
+      <div class="page-header-inner">
+        <div>
+          <h1>Browse Shirts</h1>
+          <p>Discover rare kits, retro classics and modern shirts from collectors worldwide.</p>
+        </div>
+        <a href="sell.html" class="btn btn-primary">+ List a Shirt</a>
+      </div>
+    </div>
+
+    <!-- ── SEARCH BAR ────────────────────────────── -->
+    <div class="browse-search-bar">
+      <div class="browse-search-inner">
+        <div class="search-input-wrap">
+          <span class="search-icon">🔍</span>
+          <input
+            type="text"
+            id="browseSearch"
+            placeholder="Search by club, player, season, brand..."
+          />
+          <button class="btn btn-primary" onclick="applyFilters()">Search</button>
+        </div>
+        <div class="sort-wrap">
+          <label for="sortSelect">Sort by:</label>
+          <select id="sortSelect" onchange="applyFilters()">
+            <option value="newest">Newest First</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="condition">Best Condition</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── MAIN BROWSE LAYOUT ─────────────────────── -->
+    <div class="browse-layout">
+
+      <!-- FILTER SIDEBAR -->
+      <aside class="filter-sidebar" id="filterSidebar">
+        <div class="filter-sidebar-header">
+          <h3>Filters</h3>
+          <button class="clear-filters-btn" onclick="clearFilters()">Clear all</button>
+        </div>
+
+        <!-- Listing Type -->
+        <div class="filter-group">
+          <h4>Listing Type</h4>
+          <div class="filter-options">
+            <label class="filter-checkbox">
+              <input type="checkbox" name="type" value="sell" onchange="applyFilters()" />
+              <span>For Sale</span>
+            </label>
+            <label class="filter-checkbox">
+              <input type="checkbox" name="type" value="swap" onchange="applyFilters()" />
+              <span>Swap Only</span>
+            </label>
+            <label class="filter-checkbox">
+              <input type="checkbox" name="type" value="both" onchange="applyFilters()" />
+              <span>Sale or Swap</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- League / Category -->
+        <div class="filter-group">
+          <h4>League / Category</h4>
+          <div class="filter-options">
+            <label class="filter-checkbox">
+              <input type="checkbox" name="league" value="premier-league" onchange="applyFilters()" />
+              <span>Premier League</span>
+            </label>
+            <label class="filter-checkbox">
+              <input type="checkbox" name="league" value="la-liga" onchange="applyFilters()" />
+              <span>La Liga</span>
+            </label>
+            <label class="filter-checkbox">
+              <input type="checkbox" name="league" value="serie-a" onchange="applyFilters()" />
+              <span>Serie A</span>
+            </label>
+            <label class="filter-checkbox">
+              <input type="checkbox" name="league" value="bundesliga" onchange="applyFilters()" />
+              <span>Bundesliga</span>
+            </label>
+            <label class="filter-checkbox">
+              <input type="checkbox" name="league" value="national" onchange="applyFilters()" />
+              <span>National Teams</span>
+            </label>
+            <label class="filter-checkbox">
+              <input type="checkbox" name="league" value="retro" onchange="applyFilters()" />
+              <span>Retro &amp; Vintage</span>
+            </label>
+            <label class="filter-checkbox">
+              <input type="checkbox" name="league" value="other" onchange="applyFilters()" />
+              <span>Other</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Size -->
+        <div class="filter-group">
+          <h4>Size</h4>
+          <div class="size-options">
+            <label class="size-btn"><input type="checkbox" name="size" value="XS" onchange="applyFilters()" /><span>XS</span></label>
+            <label class="size-btn"><input type="checkbox" name="size" value="S"  onchange="applyFilters()" /><span>S</span></label>
+            <label class="size-btn"><input type="checkbox" name="size" value="M"  onchange="applyFilters()" /><span>M</span></label>
+            <label class="size-btn"><input type="checkbox" name="size" value="L"  onchange="applyFilters()" /><span>L</span></label>
+            <label class="size-btn"><input type="checkbox" name="size" value="XL" onchange="applyFilters()" /><span>XL</span></label>
+            <label class="size-btn"><input type="checkbox" name="size" value="XXL" onchange="applyFilters()"/><span>XXL</span></label>
+          </div>
+        </div>
+
+        <!-- Condition -->
+        <div class="filter-group">
+          <h4>Condition</h4>
+          <div class="filter-options">
+            <label class="filter-checkbox">
+              <input type="checkbox" name="condition" value="mint" onchange="applyFilters()" />
+              <span>Mint / Unworn</span>
+            </label>
+            <label class="filter-checkbox">
+              <input type="checkbox" name="condition" value="excellent" onchange="applyFilters()" />
+              <span>Excellent</span>
+            </label>
+            <label class="filter-checkbox">
+              <input type="checkbox" name="condition" value="very-good" onchange="applyFilters()" />
+              <span>Very Good</span>
+            </label>
+            <label class="filter-checkbox">
+              <input type="checkbox" name="condition" value="good" onchange="applyFilters()" />
+              <span>Good</span>
+            </label>
+            <label class="filter-checkbox">
+              <input type="checkbox" name="condition" value="fair" onchange="applyFilters()" />
+              <span>Fair</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Price Range -->
+        <div class="filter-group">
+          <h4>Price Range</h4>
+          <div class="price-range">
+            <div class="price-inputs">
+              <input type="number" id="priceMin" placeholder="Min £" min="0" onchange="applyFilters()" />
+              <span>—</span>
+              <input type="number" id="priceMax" placeholder="Max £" min="0" onchange="applyFilters()" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile: Close Filters -->
+        <button class="btn btn-primary close-filters-btn" id="closeFilters">Apply Filters</button>
+      </aside>
+
+      <!-- LISTINGS AREA -->
+      <main class="browse-main">
+
+        <!-- Active Filter Tags -->
+        <div class="active-filters" id="activeFilters"></div>
+
+        <!-- Results count -->
+        <div class="results-meta" id="resultsMeta">Showing all listings</div>
+
+        <!-- Listings Grid -->
+        <div class="listings-grid" id="browseListings"></div>
+
+        <!-- Empty State -->
+        <div class="empty-state" id="emptyState" style="display:none;">
+          <div class="empty-icon">🔍</div>
+          <h3>No shirts found</h3>
+          <p>Try adjusting your filters or search term</p>
+          <button class="btn btn-outline" onclick="clearFilters()">Clear Filters</button>
+        </div>
+
+        <!-- Load More -->
+        <div class="load-more-wrap" id="loadMoreWrap">
+          <button class="btn btn-outline btn-large" onclick="loadMore()">Load More Shirts</button>
+        </div>
+
+      </main>
+    </div>
+
+    <!-- Mobile Filter Toggle Button -->
+    <button class="mobile-filter-toggle" id="mobileFilterToggle" onclick="toggleMobileFilters()">
+      🎛 Filters
+    </button>
+    <!-- Overlay for mobile filters -->
+    <div class="filter-overlay" id="filterOverlay" onclick="toggleMobileFilters()"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/browse.js"></script>
+  </body>
+</html>

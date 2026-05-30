@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sell a Shirt — KitSwap</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/sell.css" />
+  </head>
+
+  <body>
+
+    <!-- ── NAVIGATION ───────────────────────────── -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">⚽ KitSwap</a>
+        <ul class="nav-links">
+          <li><a href="browse.html">Browse</a></li>
+          <li><a href="sell.html" class="active">Sell a Shirt</a></li>
+          <li><a href="forum.html">Community</a></li>
+        </ul>
+        <div class="nav-auth">
+          <a href="login.html" class="btn btn-outline">Log In</a>
+          <a href="register.html" class="btn btn-primary">Sign Up</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ── PAGE HEADER ───────────────────────────── -->
+    <div class="page-header">
+      <div class="page-header-inner">
+        <div>
+          <h1>List a Shirt</h1>
+          <p>Fill in the details below — your listing will go live instantly.</p>
+        </div>
+        <a href="browse.html" class="btn btn-outline" style="color:white; border-color:rgba(255,255,255,0.4);">← Back to Browse</a>
+      </div>
+    </div>
+
+    <!-- ── STEP PROGRESS ─────────────────────────── -->
+    <div class="steps-progress">
+      <div class="steps-progress-inner">
+        <div class="step-pill active" id="pill1"><span>1</span> Details</div>
+        <div class="step-connector"></div>
+        <div class="step-pill" id="pill2"><span>2</span> Pricing</div>
+        <div class="step-connector"></div>
+        <div class="step-pill" id="pill3"><span>3</span> Photos</div>
+        <div class="step-connector"></div>
+        <div class="step-pill" id="pill4"><span>4</span> Preview</div>
+      </div>
+    </div>
+
+    <!-- ── SELL LAYOUT ────────────────────────────── -->
+    <div class="sell-layout">
+
+      <!-- FORM COLUMN -->
+      <div class="sell-form-col">
+
+        <!-- ── STEP 1: DETAILS ── -->
+        <div class="sell-step active" id="step1">
+          <div class="sell-card">
+            <h2 class="sell-card-title">👕 Shirt Details</h2>
+
+            <div class="form-group">
+              <label for="listingTitle">Listing Title <span class="req">*</span></label>
+              <input type="text" id="listingTitle" maxlength="80"
+                     placeholder="e.g. Manchester United Home Shirt 1998/99"
+                     oninput="updatePreview()" />
+              <div class="char-counter"><span id="titleCount">0</span>/80</div>
+              <span class="field-error" id="titleError"></span>
+            </div>
+
+            <div class="form-row-3">
+              <div class="form-group">
+                <label for="club">Club / Team <span class="req">*</span></label>
+                <input type="text" id="club" placeholder="e.g. Arsenal" oninput="updatePreview()" />
+                <span class="field-error" id="clubError"></span>
+              </div>
+              <div class="form-group">
+                <label for="season">Season / Year <span class="req">*</span></label>
+                <input type="text" id="season" placeholder="e.g. 2003/04" oninput="updatePreview()" />
+              </div>
+              <div class="form-group">
+                <label for="brand">Brand</label>
+                <input type="text" id="brand" placeholder="e.g. Nike, Adidas" oninput="updatePreview()" />
+              </div>
+            </div>
+
+            <div class="form-row-3">
+              <div class="form-group">
+                <label for="league">League / Category <span class="req">*</span></label>
+                <select id="league" onchange="updatePreview()">
+                  <option value="">Select...</option>
+                  <option value="Premier League">Premier League</option>
+                  <option value="La Liga">La Liga</option>
+                  <option value="Serie A">Serie A</option>
+                  <option value="Bundesliga">Bundesliga</option>
+                  <option value="Ligue 1">Ligue 1</option>
+                  <option value="National Teams">National Teams</option>
+                  <option value="Retro & Vintage">Retro &amp; Vintage</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="size">Size <span class="req">*</span></label>
+                <select id="size" onchange="updatePreview()">
+                  <option value="">Select...</option>
+                  <option>XS</option><option>S</option><option>M</option>
+                  <option>L</option><option>XL</option><option>XXL</option>
+                  <option>XXXL</option><option>Youth XS</option>
+                  <option>Youth S</option><option>Youth M</option>
+                  <option>Youth L</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="condition">Condition <span class="req">*</span></label>
+                <select id="condition" onchange="updatePreview()">
+                  <option value="">Select...</option>
+                  <option value="mint">Mint / Unworn</option>
+                  <option value="excellent">Excellent</option>
+                  <option value="very-good">Very Good</option>
+                  <option value="good">Good</option>
+                  <option value="fair">Fair</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="player">Player Name &amp; Number <span class="label-hint">(optional)</span></label>
+                <input type="text" id="player" placeholder="e.g. Beckham 7" oninput="updatePreview()" />
+              </div>
+              <div class="form-group">
+                <label>Signed? <span class="label-hint">(optional)</span></label>
+                <div class="toggle-row">
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="signed" onchange="updatePreview()" />
+                    <span class="toggle-slider"></span>
+                  </label>
+                  <span class="toggle-label" id="signedLabel">No</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="description">Description <span class="req">*</span></label>
+              <textarea id="description" rows="5" maxlength="1000"
+                        placeholder="Describe the shirt — condition details, any flaws, history, why it's special..."
+                        oninput="updateDesc()"></textarea>
+              <div class="char-counter"><span id="descCount">0</span>/1000</div>
+              <span class="field-error" id="descError"></span>
+            </div>
+
+          </div>
+          <div class="step-nav">
+            <span></span>
+            <button class="btn btn-primary" onclick="goStep(2)">Next: Pricing →</button>
+          </div>
+        </div>
+
+        <!-- ── STEP 2: PRICING ── -->
+        <div class="sell-step" id="step2">
+          <div class="sell-card">
+            <h2 class="sell-card-title">💰 Pricing &amp; Type</h2>
+
+            <div class="listing-type-selector">
+              <label class="type-option" id="typeOptSell">
+                <input type="radio" name="listingType" value="sell" checked onchange="switchListingType('sell')" />
+                <div class="type-option-inner">
+                  <span class="type-icon">💳</span>
+                  <strong>Sell</strong>
+                  <span>Set a price</span>
+                </div>
+              </label>
+              <label class="type-option" id="typeOptSwap">
+                <input type="radio" name="listingType" value="swap" onchange="switchListingType('swap')" />
+                <div class="type-option-inner">
+                  <span class="type-icon">🔄</span>
+                  <strong>Swap</strong>
+                  <span>Trade only</span>
+                </div>
+              </label>
+              <label class="type-option" id="typeOptBoth">
+                <input type="radio" name="listingType" value="both" onchange="switchListingType('both')" />
+                <div class="type-option-inner">
+                  <span class="type-icon">🤝</span>
+                  <strong>Both</strong>
+                  <span>Sell or swap</span>
+                </div>
+              </label>
+            </div>
+
+            <!-- Price fields (shown for sell/both) -->
+            <div id="priceFields">
+              <div class="form-group" style="margin-top:1.5rem;">
+                <label for="price">Asking Price <span class="req">*</span></label>
+                <div class="price-input-wrap">
+                  <span class="price-symbol">£</span>
+                  <input type="number" id="price" min="1" max="9999"
+                         placeholder="0.00" step="0.50" oninput="updatePreview()" />
+                </div>
+                <span class="field-error" id="priceError"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="acceptOffers">Accept offers below asking price?</label>
+                <div class="toggle-row">
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="acceptOffers" checked />
+                    <span class="toggle-slider"></span>
+                  </label>
+                  <span class="toggle-label" id="offersLabel">Yes — buyers can make offers</span>
+                </div>
+              </div>
+
+              <div class="fee-breakdown" id="feeBreakdown">
+                <div class="fee-row">
+                  <span>Asking price</span>
+                  <span id="feeAsk">£0.00</span>
+                </div>
+                <div class="fee-row fee-deduction">
+                  <span>KitSwap fee (5%)</span>
+                  <span id="feeCut">−£0.00</span>
+                </div>
+                <div class="fee-row fee-total">
+                  <span>You receive</span>
+                  <span id="feeNet">£0.00</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Swap fields -->
+            <div id="swapFields" style="display:none; margin-top:1.5rem;">
+              <div class="form-group">
+                <label for="swapFor">What are you looking to swap for? <span class="req">*</span></label>
+                <textarea id="swapFor" rows="3" maxlength="300"
+                          placeholder="e.g. Looking for a Liverpool or Everton shirt from the same era, any size M or L..."></textarea>
+                <span class="field-error" id="swapError"></span>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-top:1.5rem;">
+              <label for="shippingCost">Shipping cost to buyer</label>
+              <select id="shippingCost">
+                <option value="buyer">Buyer pays actual postage</option>
+                <option value="free">Free UK shipping (I'll cover it)</option>
+                <option value="fixed3">Fixed £3</option>
+                <option value="fixed5">Fixed £5</option>
+                <option value="fixed8">Fixed £8</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="shipsFrom">Ships from</label>
+              <input type="text" id="shipsFrom" placeholder="e.g. Manchester, UK" />
+            </div>
+
+          </div>
+          <div class="step-nav">
+            <button class="btn btn-outline" onclick="goStep(1)">← Back</button>
+            <button class="btn btn-primary" onclick="goStep(3)">Next: Photos →</button>
+          </div>
+        </div>
+
+        <!-- ── STEP 3: PHOTOS ── -->
+        <div class="sell-step" id="step3">
+          <div class="sell-card">
+            <h2 class="sell-card-title">📸 Photos</h2>
+            <p class="sell-card-sub">Upload up to 8 photos. First photo is your main listing image. Clear, well-lit photos get more views.</p>
+
+            <div class="upload-area" id="uploadArea"
+                 ondragover="handleDragOver(event)"
+                 ondragleave="handleDragLeave(event)"
+                 ondrop="handleDrop(event)"
+                 onclick="document.getElementById('photoInput').click()">
+              <div class="upload-icon">📷</div>
+              <p class="upload-title">Drag &amp; drop photos here</p>
+              <p class="upload-sub">or click to browse · JPG, PNG, WEBP · Max 5MB each</p>
+              <input type="file" id="photoInput" accept="image/*" multiple
+                     style="display:none" onchange="handleFileInput(event)" />
+            </div>
+
+            <div class="photo-grid" id="photoGrid"></div>
+
+            <div class="photo-tips">
+              <h4>📌 Photo tips for more sales</h4>
+              <ul>
+                <li>Lay the shirt flat on a clean surface</li>
+                <li>Photograph front, back, badge, sponsor &amp; any flaws</li>
+                <li>Use natural light where possible</li>
+                <li>Include a photo of the size tag</li>
+              </ul>
+            </div>
+          </div>
+          <div class="step-nav">
+            <button class="btn btn-outline" onclick="goStep(2)">← Back</button>
+            <button class="btn btn-primary" onclick="goStep(4)">Next: Preview →</button>
+          </div>
+        </div>
+
+        <!-- ── STEP 4: PREVIEW ── -->
+        <div class="sell-step" id="step4">
+          <div class="sell-card">
+            <h2 class="sell-card-title">✅ Preview &amp; Publish</h2>
+            <p class="sell-card-sub">This is exactly how your listing will appear to buyers. Happy with it? Hit Publish!</p>
+
+            <div class="full-preview" id="fullPreview"></div>
+
+          </div>
+          <div class="step-nav">
+            <button class="btn btn-outline" onclick="goStep(3)">← Back</button>
+            <button class="btn btn-primary btn-publish" onclick="publishListing()">🚀 Publish Listing</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PREVIEW COLUMN (sticky) -->
+      <aside class="sell-preview-col">
+        <div class="preview-label">Live Preview</div>
+        <div class="listing-card preview-card" id="livePreviewCard">
+          <div class="listing-card-img" id="previewImg">👕</div>
+          <div class="listing-card-body">
+            <div class="listing-card-title" id="previewTitle">Your listing title</div>
+            <div class="listing-card-meta"  id="previewMeta">Size · Condition</div>
+            <div class="listing-card-footer">
+              <span class="listing-card-price" id="previewPrice">£—</span>
+              <span class="listing-card-type sell" id="previewType">Sale</span>
+            </div>
+          </div>
+        </div>
+        <p class="preview-hint">Updates live as you fill in the form</p>
+      </aside>
+
+    </div>
+
+    <!-- ── SUCCESS MODAL ──────────────────────────── -->
+    <div class="modal-overlay" id="successOverlay"></div>
+    <div class="modal" id="successModal">
+      <div style="text-align:center; padding: 1rem 0;">
+        <div style="font-size:4rem; margin-bottom:1rem;">🎉</div>
+        <h2 style="font-size:1.5rem; font-weight:800; margin-bottom:0.75rem;">Listing Published!</h2>
+        <p style="color:var(--color-grey); margin-bottom:2rem; line-height:1.7;">
+          Your shirt is now live on KitSwap and visible to thousands of collectors.
+          You'll be notified when someone shows interest.
+        </p>
+        <div style="display:flex; flex-direction:column; gap:0.75rem;">
+          <a href="browse.html" class="btn btn-primary" style="text-align:center; padding:0.9rem;">View My Listing</a>
+          <button class="btn btn-outline" onclick="resetForm()" style="padding:0.9rem;">List Another Shirt</button>
+        </div>
+      </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/sell.js"></script>
+  </body>
+</html>

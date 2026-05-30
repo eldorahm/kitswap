@@ -1,0 +1,49 @@
+/* ── GLOBAL RESET & VARIABLES ───────────────────── */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Brand Colors */
+  --color-primary:    #16a34a;   /* green  */
+  --color-primary-dark: #15803d;
+  --color-dark:       #0f172a;   /* near black */
+  --color-light:      #f8fafc;   /* near white */
+  --color-grey:       #64748b;
+  --color-border:     #e2e8f0;
+
+  /* Typography */
+  --font-main: 'Segoe UI', system-ui, sans-serif;
+
+  /* Spacing */
+  --radius: 10px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}

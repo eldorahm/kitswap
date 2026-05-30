@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Listing — KitSwap</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/listing.css" />
+  </head>
+
+  <body>
+
+    <!-- ── NAVIGATION ───────────────────────────── -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">⚽ KitSwap</a>
+        <ul class="nav-links">
+          <li><a href="browse.html">Browse</a></li>
+          <li><a href="sell.html">Sell a Shirt</a></li>
+          <li><a href="forum.html">Community</a></li>
+        </ul>
+        <div class="nav-auth">
+          <a href="login.html" class="btn btn-outline">Log In</a>
+          <a href="register.html" class="btn btn-primary">Sign Up</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ── BREADCRUMB ────────────────────────────── -->
+    <div class="breadcrumb-bar">
+      <div class="breadcrumb-inner">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <a href="browse.html">Browse</a>
+        <span>›</span>
+        <span id="breadcrumbTitle">Loading...</span>
+      </div>
+    </div>
+
+    <!-- ── LISTING MAIN ──────────────────────────── -->
+    <div class="listing-page" id="listingPage">
+
+      <!-- LEFT: GALLERY -->
+      <div class="listing-gallery">
+        <div class="gallery-main" id="galleryMain"></div>
+        <div class="gallery-thumbs" id="galleryThumbs"></div>
+      </div>
+
+      <!-- RIGHT: DETAILS -->
+      <div class="listing-details">
+
+        <!-- Title & Badges -->
+        <div class="listing-top">
+          <div class="listing-badges" id="listingBadges"></div>
+          <h1 class="listing-title" id="listingTitle">Loading...</h1>
+          <div class="listing-price" id="listingPrice"></div>
+        </div>
+
+        <!-- Quick Specs -->
+        <div class="listing-specs" id="listingSpecs"></div>
+
+        <!-- Description -->
+        <div class="listing-desc">
+          <h3>Description</h3>
+          <p id="listingDesc"></p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="listing-actions" id="listingActions"></div>
+
+        <!-- Seller Card -->
+        <div class="seller-card" id="sellerCard"></div>
+
+        <!-- Safety Note -->
+        <div class="safety-note">
+          🔒 <strong>KitSwap Buyer Protection</strong> — Your payment is held securely until you confirm receipt of your shirt.
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── RELATED LISTINGS ──────────────────────── -->
+    <section class="related-section">
+      <div class="related-inner">
+        <h2>More from this Seller</h2>
+        <div class="listings-grid" id="relatedListings"></div>
+      </div>
+    </section>
+
+    <!-- ── ACTION MODAL (Buy/Offer/Swap) ─────────── -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+    <div class="modal" id="actionModal">
+      <button class="modal-close" onclick="closeModal()">×</button>
+      <div id="modalContent"></div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/listing.js"></script>
+  </body>
+</html>
