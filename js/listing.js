@@ -229,6 +229,8 @@ function closeModal() {
   document.getElementById('modalOverlay').classList.remove('open');
 }
 
+// Replace your existing submitAction() function in js/listing.js with this:
+
 async function submitAction(type) {
   const user = await getUser();
   if (!user) {
@@ -236,12 +238,54 @@ async function submitAction(type) {
     window.location.href = 'login.html';
     return;
   }
+
+  if (type === 'buy') {
+    const btn = document.querySelector('#actionModal .btn-primary');
+    if (btn) { btn.textContent = '⏳ Processing...'; btn.disabled = true; }
+
+    try {
+      // Call the Supabase Edge Function to create Stripe Checkout Session
+      const { data: { session } } = await sb.auth.getSession();
+
+      const res = await fetch(
+        `${SUPABASE_URL}/functions/v1/create-checkout`,
+        {
+          method:  'POST',
+          headers: {
+            'Content-Type':  'application/json',
+            'Authorization': `Bearer ${session.access_token}`,
+            'apikey':         SUPABASE_ANON,
+          },
+          body: JSON.stringify({ listing_id: currentListing.id }),
+        }
+      );
+
+      const data = await res.json();
+
+      if (data.error) throw new Error(data.error);
+
+      // Redirect to Stripe Checkout
+      window.location.href = data.url;
+
+    } catch (err) {
+      document.getElementById('modalContent').innerHTML = `
+        <div style="text-align:center;padding:1.5rem 0;">
+          <div style="font-size:3rem;margin-bottom:1rem;">❌</div>
+          <h2>Payment Error</h2>
+          <p style="color:var(--color-grey);margin-top:0.5rem;">${err.message}</p>
+          <button class="btn btn-outline" style="margin-top:1.5rem;width:100%;" onclick="closeModal()">Close</button>
+        </div>`;
+    }
+    return;
+  }
+
+  // For offer, swap and message — show confirmation as before
   const msgs = {
-    buy:     'Redirecting to payment... (Stripe integration coming next!)',
     offer:   'Offer sent! The seller will be notified.',
     swap:    'Swap proposal sent! The seller will review your offer.',
     message: 'Message sent! You\'ll be notified when they reply.'
   };
+
   document.getElementById('modalContent').innerHTML = `
     <div style="text-align:center;padding:1.5rem 0;">
       <div style="font-size:3rem;margin-bottom:1rem;">✅</div>

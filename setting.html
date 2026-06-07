@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings — KitSwap</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/settings.css" />
+  </head>
+
+  <body>
+
+    <!-- ── NAVIGATION ───────────────────────────── -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">⚽ KitSwap</a>
+        <ul class="nav-links">
+          <li><a href="browse.html">Browse</a></li>
+          <li><a href="sell.html">Sell a Shirt</a></li>
+          <li><a href="forum.html">Community</a></li>
+        </ul>
+        <div class="nav-auth">
+          <a href="login.html" class="btn btn-outline">Log In</a>
+          <a href="register.html" class="btn btn-primary">Sign Up</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ── PAGE HEADER ───────────────────────────── -->
+    <div class="page-header">
+      <div class="page-header-inner">
+        <div>
+          <h1>Account Settings</h1>
+          <p>Manage your profile, preferences and security.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SETTINGS LAYOUT ───────────────────────── -->
+    <div class="settings-layout">
+
+      <!-- SIDEBAR NAV -->
+      <aside class="settings-nav">
+        <button class="settings-nav-item active" onclick="switchSection('profile', this)">👤 Profile</button>
+        <button class="settings-nav-item" onclick="switchSection('account', this)">🔒 Account & Security</button>
+        <button class="settings-nav-item" onclick="switchSection('notifications', this)">🔔 Notifications</button>
+        <button class="settings-nav-item" onclick="switchSection('payments', this)">💳 Payments</button>
+        <button class="settings-nav-item settings-nav-danger" onclick="confirmDeleteAccount()">🗑 Delete Account</button>
+      </aside>
+
+      <!-- SECTIONS -->
+      <div class="settings-main">
+
+        <!-- ── PROFILE ── -->
+        <div class="settings-section active" id="section-profile">
+          <div class="settings-card">
+            <h2>Public Profile</h2>
+            <p class="settings-card-sub">This is what other collectors see when they visit your profile.</p>
+
+            <!-- Avatar -->
+            <div class="avatar-editor">
+              <div class="avatar-preview" id="avatarPreview">U</div>
+              <div>
+                <p class="avatar-hint">Your avatar shows your username initial. Custom avatars coming soon.</p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Username</label>
+              <input type="text" id="settingUsername" placeholder="Your username" />
+              <span class="field-hint">This is your public display name and cannot contain spaces.</span>
+            </div>
+
+            <div class="form-group">
+              <label>Full Name <span class="label-hint">(optional, not shown publicly)</span></label>
+              <input type="text" id="settingFullName" placeholder="Your full name" />
+            </div>
+
+            <div class="form-group">
+              <label>Bio</label>
+              <textarea id="settingBio" rows="4" maxlength="300"
+                placeholder="Tell other collectors about yourself — what you collect, your favourite clubs, how long you've been collecting..."></textarea>
+              <div class="char-counter"><span id="bioCount">0</span>/300</div>
+            </div>
+
+            <div class="form-group">
+              <label>Location</label>
+              <input type="text" id="settingLocation" placeholder="e.g. Manchester, UK" />
+            </div>
+
+            <div class="form-group">
+              <label>Favourite Clubs <span class="label-hint">(comma separated)</span></label>
+              <input type="text" id="settingFavClubs" placeholder="e.g. Arsenal, Ajax, AC Milan" />
+            </div>
+
+            <div class="form-group">
+              <label>Typical Response Time</label>
+              <select id="settingResponseTime">
+                <option value="Within 1 hr">Within 1 hour</option>
+                <option value="Within 2 hrs">Within 2 hours</option>
+                <option value="Within 6 hrs">Within 6 hours</option>
+                <option value="Within 24 hrs" selected>Within 24 hours</option>
+                <option value="Within 48 hrs">Within 48 hours</option>
+              </select>
+            </div>
+
+            <div class="settings-actions">
+              <button class="btn btn-primary" onclick="saveProfile()">Save Profile</button>
+              <span class="save-feedback" id="profileFeedback"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── ACCOUNT & SECURITY ── -->
+        <div class="settings-section" id="section-account">
+          <div class="settings-card">
+            <h2>Email Address</h2>
+            <p class="settings-card-sub">Your login email. A verification link will be sent if you change it.</p>
+            <div class="form-group">
+              <label>Current Email</label>
+              <input type="email" id="settingEmail" placeholder="your@email.com" />
+            </div>
+            <div class="settings-actions">
+              <button class="btn btn-primary" onclick="updateEmail()">Update Email</button>
+              <span class="save-feedback" id="emailFeedback"></span>
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <h2>Change Password</h2>
+            <p class="settings-card-sub">Use a strong password of at least 8 characters.</p>
+            <div class="form-group">
+              <label>New Password</label>
+              <div class="input-icon-wrap">
+                <input type="password" id="newPassword" placeholder="Enter new password"
+                       oninput="checkPwStrength(this.value)" />
+                <button type="button" class="toggle-pw"
+                        onclick="togglePw('newPassword', this)">👁</button>
+              </div>
+              <div class="pw-strength">
+                <div class="pw-strength-bar" id="settingsPwBar"></div>
+              </div>
+              <span class="pw-strength-label" id="settingsPwLabel"></span>
+            </div>
+            <div class="form-group">
+              <label>Confirm New Password</label>
+              <div class="input-icon-wrap">
+                <input type="password" id="confirmNewPassword" placeholder="Repeat new password" />
+                <button type="button" class="toggle-pw"
+                        onclick="togglePw('confirmNewPassword', this)">👁</button>
+              </div>
+            </div>
+            <div class="settings-actions">
+              <button class="btn btn-primary" onclick="updatePassword()">Update Password</button>
+              <span class="save-feedback" id="passwordFeedback"></span>
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <h2>Active Sessions</h2>
+            <p class="settings-card-sub">Log out of all other devices if you think your account has been compromised.</p>
+            <button class="btn btn-outline" style="color:#ef4444;border-color:#ef4444;"
+                    onclick="logOutAll()">Log Out of All Devices</button>
+          </div>
+        </div>
+
+        <!-- ── NOTIFICATIONS ── -->
+        <div class="settings-section" id="section-notifications">
+          <div class="settings-card">
+            <h2>Email Notifications</h2>
+            <p class="settings-card-sub">Choose which emails you want to receive from KitSwap.</p>
+
+            <div class="notif-list">
+              <div class="notif-item">
+                <div class="notif-info">
+                  <strong>New message received</strong>
+                  <span>When a buyer or seller sends you a message</span>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="notifMessages" checked />
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="notif-item">
+                <div class="notif-info">
+                  <strong>New offer on your listing</strong>
+                  <span>When someone makes an offer or swap proposal</span>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="notifOffers" checked />
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="notif-item">
+                <div class="notif-info">
+                  <strong>Listing sold or swapped</strong>
+                  <span>Confirmation when a transaction completes</span>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="notifSales" checked />
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="notif-item">
+                <div class="notif-info">
+                  <strong>New review received</strong>
+                  <span>When a buyer leaves you a review</span>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="notifReviews" checked />
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="notif-item">
+                <div class="notif-info">
+                  <strong>KitSwap news and updates</strong>
+                  <span>Platform updates, new features and community highlights</span>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="notifMarketing" />
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="settings-actions">
+              <button class="btn btn-primary" onclick="saveNotifications()">Save Preferences</button>
+              <span class="save-feedback" id="notifFeedback"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── PAYMENTS ── -->
+        <div class="settings-section" id="section-payments">
+          <div class="settings-card">
+            <h2>Payout Account</h2>
+            <p class="settings-card-sub">Connect your bank account to receive payments from shirt sales. Powered by Stripe.</p>
+            <div class="stripe-connect-box" id="stripeConnectBox">
+              <div class="stripe-connect-icon">💳</div>
+              <h3>Connect with Stripe</h3>
+              <p>Set up your payout account to start receiving money from sales. KitSwap uses Stripe for secure, instant payouts.</p>
+              <button class="btn btn-primary" onclick="connectStripe()">Connect Stripe Account</button>
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <h2>Transaction History</h2>
+            <p class="settings-card-sub">Your recent sales and payouts.</p>
+            <div class="empty-state" style="padding:2rem 0;">
+              <div class="empty-icon">📊</div>
+              <h3>No transactions yet</h3>
+              <p>Your sales history will appear here once you start selling.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── DELETE ACCOUNT MODAL ───────────────────── -->
+    <div class="modal-overlay" id="deleteOverlay" onclick="closeDeleteModal()"></div>
+    <div class="modal" id="deleteModal">
+      <button class="modal-close" onclick="closeDeleteModal()">×</button>
+      <div style="text-align:center; padding:1rem 0;">
+        <div style="font-size:3rem; margin-bottom:1rem;">⚠️</div>
+        <h2 style="color:#ef4444;">Delete Account</h2>
+        <p style="color:var(--color-grey);margin:1rem 0 1.5rem;line-height:1.7;">
+          This will permanently delete your account, all your listings, messages and reviews.
+          <strong>This cannot be undone.</strong>
+        </p>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+          <div class="form-group" style="text-align:left;">
+            <label style="font-size:0.875rem;font-weight:600;">
+              Type <strong>DELETE</strong> to confirm
+            </label>
+            <input type="text" id="deleteConfirmInput" placeholder="Type DELETE here"
+                   style="width:100%;border:1.5px solid #ef4444;border-radius:var(--radius);
+                          padding:0.75rem 1rem;font-size:0.95rem;font-family:var(--font-main);outline:none;" />
+          </div>
+          <button class="btn" style="background:#ef4444;color:white;border-color:#ef4444;padding:0.9rem;"
+                  onclick="deleteAccount()">Permanently Delete My Account</button>
+          <button class="btn btn-outline" onclick="closeDeleteModal()">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/settings.js"></script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options",    "value": "nosniff" },
+        { "key": "X-Frame-Options",            "value": "DENY" },
+        { "key": "X-XSS-Protection",           "value": "1; mode=block" },
+        { "key": "Referrer-Policy",            "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ],
+  "rewrites": [
+    { "source": "/browse",   "destination": "/browse.html"   },
+    { "source": "/sell",     "destination": "/sell.html"     },
+    { "source": "/login",    "destination": "/login.html"    },
+    { "source": "/register", "destination": "/register.html" },
+    { "source": "/forum",    "destination": "/forum.html"    },
+    { "source": "/messages", "destination": "/messages.html" },
+    { "source": "/profile",  "destination": "/profile.html"  },
+    { "source": "/listing",  "destination": "/listing.html"  }
+  ]
+}
