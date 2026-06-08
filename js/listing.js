@@ -165,8 +165,8 @@ async function loadRelated(l) {
   const grid = document.getElementById('relatedListings');
   if (!grid) return;
 
-  // Fetch listings from same league, exclude current
-  const data = await fetchListings({ league: l.league, limit: 5 });
+  // Fetch listings from same seller, exclude current
+  const data = await fetchUserListings(l.seller_id);
   const others = data.filter(x => x.id !== l.id).slice(0, 4);
 
   if (!others.length) {

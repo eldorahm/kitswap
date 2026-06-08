@@ -187,6 +187,11 @@ function appendMessage(m, skipScroll = false) {
 
 /* ── SEND MESSAGE ────────────────────────────────── */
 
+const sbSend = (convId, content) =>
+  sb.from('messages')
+    .insert({ conversation_id: convId, sender_id: currentUser.id, content })
+    .select().single();
+
 async function sendMessage() {
   const input   = document.getElementById('chatInput');
   const content = input.value.trim();
@@ -195,38 +200,17 @@ async function sendMessage() {
   input.value        = '';
   input.style.height = 'auto';
 
-  const { error } = await sbSendMessage(activeConvId, content);
-  if (error) { console.error('Send error:', error); return; }
-
-  // Optimistically show the message immediately
-  appendMessage({
-    sender_id:  currentUser.id,
-    content,
-    created_at: new Date().toISOString()
-  });
-}
-
-// Alias to avoid naming conflict with the global sendMessage helper
-const sbSendMessage = window.sendMessage
-  ? (convId, content) => window.sendMessage(convId, content)
-  : sendMessage;
-
-// Override: use the Supabase helper from supabase.js
-async function sendMessage() {
-  const input   = document.getElementById('chatInput');
-  const content = input.value.trim();
-  if (!content || !activeConvId) return;
-  input.value = '';
-  input.style.height = 'auto';
   const { error } = await sbSend(activeConvId, content);
-  if (error) console.error('Send failed:', error);
-  else appendMessage({ sender_id: currentUser.id, content, created_at: new Date().toISOString() });
+  if (error) {
+    console.error('Send failed:', error);
+  } else {
+    appendMessage({
+      sender_id:  currentUser.id,
+      content,
+      created_at: new Date().toISOString()
+    });
+  }
 }
-
-const sbSend = (convId, content) =>
-  sb.from('messages')
-    .insert({ conversation_id: convId, sender_id: currentUser.id, content })
-    .select().single();
 
 function handleChatKey(e) {
   if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }

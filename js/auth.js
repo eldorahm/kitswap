@@ -132,6 +132,7 @@ async function handleRegister(e) {
   const email     = document.getElementById('regEmail').value.trim();
   const pw        = document.getElementById('regPassword').value;
   const pwConf    = document.getElementById('confirmPassword').value;
+  const location  = document.getElementById('location')?.value.trim() || '';
   const agreed    = document.getElementById('agreeTerms').checked;
 
   if (!firstName) { setErr('firstNameError', 'Please enter your first name.'); valid = false; }
@@ -164,7 +165,7 @@ async function handleRegister(e) {
 
   setLoading('registerBtn', true, 'Create Free Account');
 
-  // Sign up with Supabase — passes username and full_name as metadata
+  // Sign up with Supabase — passes username, full_name, and location as metadata
   // The database trigger will auto-create the profile row
   const { data, error } = await sb.auth.signUp({
     email,
@@ -173,6 +174,7 @@ async function handleRegister(e) {
       data: {
         username,
         full_name: `${firstName} ${lastName}`.trim(),
+        location,
       }
     }
   });

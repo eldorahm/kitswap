@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Successful — KitSwap</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <style>
+      .success-page {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        background: linear-gradient(135deg, #0f172a, #1e3a5f);
+      }
+
+      .success-card {
+        background: white;
+        border-radius: 20px;
+        padding: 3rem 2.5rem;
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 24px 64px rgba(0,0,0,0.3);
+      }
+
+      .success-icon {
+        font-size: 4rem;
+        margin-bottom: 1.25rem;
+        animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      @keyframes popIn {
+        from { transform: scale(0); opacity: 0; }
+        to   { transform: scale(1); opacity: 1; }
+      }
+
+      .success-card h1 {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: var(--color-dark);
+        margin-bottom: 0.75rem;
+        letter-spacing: -0.5px;
+      }
+
+      .success-card p {
+        color: var(--color-grey);
+        line-height: 1.7;
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+      }
+
+      .success-steps {
+        background: #f0fdf4;
+        border: 1px solid #bbf7d0;
+        border-radius: var(--radius);
+        padding: 1.25rem;
+        text-align: left;
+        margin: 1.5rem 0;
+      }
+
+      .success-steps h3 {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: #15803d;
+        margin-bottom: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .success-step {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        font-size: 0.875rem;
+        color: #15803d;
+        margin-bottom: 0.5rem;
+        line-height: 1.5;
+      }
+
+      .success-step:last-child { margin-bottom: 0; }
+
+      .success-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+      }
+
+      .success-actions .btn {
+        width: 100%;
+        text-align: center;
+        padding: 0.9rem;
+      }
+
+      .order-ref {
+        font-size: 0.75rem;
+        color: #94a3b8;
+        margin-top: 1.5rem;
+        font-family: monospace;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="success-page">
+      <div class="success-card">
+        <div class="success-icon">🎉</div>
+        <h1>Payment Successful!</h1>
+        <p>
+          Your purchase is confirmed. The seller has been notified
+          and will ship your shirt shortly.
+        </p>
+
+        <div class="success-steps">
+          <h3>What happens next?</h3>
+          <div class="success-step">📧 <span>You'll receive a confirmation email shortly</span></div>
+          <div class="success-step">📦 <span>The seller will package and ship your shirt</span></div>
+          <div class="success-step">🔔 <span>You'll be notified when it's dispatched</span></div>
+          <div class="success-step">✅ <span>Confirm receipt to release payment to the seller</span></div>
+        </div>
+
+        <div class="success-actions">
+          <a href="messages.html" class="btn btn-primary">💬 Message the Seller</a>
+          <a href="browse.html"   class="btn btn-outline">Continue Browsing</a>
+        </div>
+
+        <div class="order-ref" id="orderRef"></div>
+      </div>
+    </div>
+
+    <script>
+      const params    = new URLSearchParams(window.location.search);
+      const sessionId = params.get('session_id');
+      if (sessionId) {
+        document.getElementById('orderRef').textContent = `Order ref: ${sessionId.slice(-12).toUpperCase()}`;
+      }
+    </script>
+  </body>
+</html>
