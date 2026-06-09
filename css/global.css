@@ -7,20 +7,40 @@
 }
 
 :root {
-  /* Brand Colors */
-  --color-primary:    #16a34a;   /* green  */
-  --color-primary-dark: #15803d;
-  --color-dark:       #0f172a;   /* near black */
-  --color-light:      #f8fafc;   /* near white */
-  --color-grey:       #64748b;
-  --color-border:     #e2e8f0;
+  /* Brand — Gold, Grey, Black */
+  --color-primary:        #D4AF37;
+  --color-primary-dark:   #B8960C;
+  --color-primary-light:  #E8C547;
+  --color-primary-bg:     #FDF6E3;
+  --color-primary-bg-alt: #F5EDD4;
+
+  --color-dark:           #0A0A0A;
+  --color-dark-soft:      #1A1A1A;
+  --color-dark-mid:       #2D2D2D;
+
+  --color-light:          #F5F5F5;
+  --color-surface:        #FFFFFF;
+  --color-surface-alt:    #E8E8E8;
+  --color-grey:           #71717A;
+  --color-grey-light:     #A1A1AA;
+  --color-grey-muted:     #94A3B8;
+  --color-border:         #D4D4D4;
+
+  --gradient-hero:        linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 55%, #2D2D2D 100%);
+  --gradient-gold:        linear-gradient(135deg, #D4AF37, #B8960C);
+  --gradient-gold-subtle: linear-gradient(135deg, #FDF6E3, #F5EDD4);
+  --gradient-profile:     linear-gradient(135deg, #D4AF37, #8B6914);
+
+  --gold-glow:            rgba(212, 175, 55, 0.15);
+  --gold-glow-strong:     rgba(212, 175, 55, 0.25);
+  --gold-ring:            rgba(212, 175, 55, 0.12);
 
   /* Typography */
   --font-main: 'Segoe UI', system-ui, sans-serif;
 
   /* Spacing */
   --radius: 10px;
-  --shadow: 0 4px 24px rgba(0,0,0,0.08);
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
 }
 
 html {

@@ -1,7 +1,7 @@
 /* ── PAGE HEADER (reuse from browse) ─────────────── */
 
 .page-header {
-  background: linear-gradient(135deg, #0f172a, #1e3a5f);
+  background: var(--gradient-hero);
   padding: 3rem 2rem;
 }
 
@@ -82,7 +82,7 @@
 
 .step-pill.active span {
   background: var(--color-primary);
-  color: white;
+  color: var(--color-dark);
 }
 
 .step-pill.done {
@@ -90,7 +90,7 @@
 }
 
 .step-pill.done span {
-  background: #dcfce7;
+  background: var(--color-primary-bg-alt);
   color: var(--color-primary);
 }
 
@@ -182,7 +182,7 @@
 .form-group select:focus,
 .form-group textarea:focus {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(22,163,74,0.1);
+  box-shadow: 0 0 0 3px var(--gold-ring);
 }
 
 .form-group textarea {
@@ -319,7 +319,7 @@
 
 .type-option input:checked + .type-option-inner {
   border-color: var(--color-primary);
-  background: #f0fdf4;
+  background: var(--color-primary-bg);
 }
 
 .type-icon {
@@ -350,7 +350,7 @@
 
 .price-input-wrap:focus-within {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(22,163,74,0.1);
+  box-shadow: 0 0 0 3px var(--gold-ring);
 }
 
 .price-symbol {
@@ -358,7 +358,7 @@
   font-size: 1rem;
   font-weight: 700;
   color: var(--color-grey);
-  background: #f8fafc;
+  background: var(--color-light);
   border-right: 1.5px solid var(--color-border);
   height: 100%;
   display: flex;
@@ -377,7 +377,7 @@
 
 /* Fee breakdown */
 .fee-breakdown {
-  background: #f8fafc;
+  background: var(--color-light);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   padding: 1rem 1.25rem;
@@ -422,7 +422,7 @@
 .upload-area:hover,
 .upload-area.drag-over {
   border-color: var(--color-primary);
-  background: #f0fdf4;
+  background: var(--color-primary-bg);
 }
 
 .upload-icon {
@@ -503,8 +503,8 @@
 
 /* Photo tips */
 .photo-tips {
-  background: #eff6ff;
-  border: 1px solid #bfdbfe;
+  background: var(--color-primary-bg);
+  border: 1px solid rgba(212, 175, 55, 0.35);
   border-radius: var(--radius);
   padding: 1.1rem 1.25rem;
   margin-top: 1.5rem;
@@ -513,7 +513,7 @@
 .photo-tips h4 {
   font-size: 0.875rem;
   font-weight: 700;
-  color: #1d4ed8;
+  color: var(--color-primary-dark);
   margin-bottom: 0.6rem;
 }
 
@@ -527,7 +527,7 @@
 
 .photo-tips li {
   font-size: 0.82rem;
-  color: #1e40af;
+  color: var(--color-primary-dark);
 }
 
 /* ── FULL PREVIEW (step 4) ───────────────────────── */
@@ -541,7 +541,7 @@
 .full-preview-img {
   width: 100%;
   aspect-ratio: 16/9;
-  background: #f1f5f9;
+  background: var(--color-surface-alt);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -584,7 +584,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 0.75rem;
-  background: #f8fafc;
+  background: var(--color-light);
   border-radius: 8px;
   padding: 1rem;
   margin-bottom: 1rem;

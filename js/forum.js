@@ -3,7 +3,7 @@
 const categories = ["All","General Discussion","Shirt Showcase","Buying Advice","Authentication Help","Trade Wanted","News & Releases"];
 
 const catColors = {
-  "General Discussion":  { bg:"#f0fdf4", color:"#15803d" },
+  "General Discussion":  { bg:"#FDF6E3", color:"#B8960C" },
   "Shirt Showcase":      { bg:"#eff6ff", color:"#1d4ed8" },
   "Buying Advice":       { bg:"#fef9c3", color:"#854d0e" },
   "Authentication Help": { bg:"#fef2f2", color:"#b91c1c" },

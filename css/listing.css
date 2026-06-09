@@ -1,7 +1,7 @@
 /* ── BREADCRUMB ──────────────────────────────────── */
 
 .breadcrumb-bar {
-  background: #f8fafc;
+  background: var(--color-light);
   border-bottom: 1px solid var(--color-border);
   padding: 0.75rem 2rem;
 }
@@ -47,7 +47,7 @@
 .gallery-main {
   width: 100%;
   aspect-ratio: 1;
-  background: #f1f5f9;
+  background: var(--color-surface-alt);
   border-radius: var(--radius);
   overflow: hidden;
   display: flex;
@@ -77,7 +77,7 @@
   width: 72px;
   height: 72px;
   border-radius: 8px;
-  background: #f1f5f9;
+  background: var(--color-surface-alt);
   border: 2px solid transparent;
   display: flex;
   align-items: center;
@@ -126,11 +126,11 @@
   letter-spacing: 0.5px;
 }
 
-.badge-sell     { background: #dcfce7; color: #15803d; }
+.badge-sell     { background: var(--color-primary-bg-alt); color: var(--color-primary-dark); }
 .badge-swap     { background: #fef9c3; color: #854d0e; }
-.badge-both     { background: #dbeafe; color: #1d4ed8; }
-.badge-league   { background: #f1f5f9; color: var(--color-grey); }
-.badge-condition-mint      { background: #dcfce7; color: #15803d; }
+.badge-both     { background: var(--color-primary-bg); color: var(--color-primary-dark); }
+.badge-league   { background: var(--color-surface-alt); color: var(--color-grey); }
+.badge-condition-mint      { background: var(--color-primary-bg-alt); color: var(--color-primary-dark); }
 .badge-condition-excellent { background: #d1fae5; color: #065f46; }
 .badge-condition-very-good { background: #e0f2fe; color: #0369a1; }
 .badge-condition-good      { background: #fef9c3; color: #854d0e; }
@@ -165,7 +165,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.75rem;
-  background: #f8fafc;
+  background: var(--color-light);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   padding: 1.25rem;
@@ -224,7 +224,7 @@
 
 .btn-buy {
   background: var(--color-primary);
-  color: white;
+  color: var(--color-dark);
   border: 2px solid var(--color-primary);
   font-weight: 700;
 }
@@ -258,15 +258,16 @@
 }
 
 .btn-message {
-  background: #eff6ff;
-  color: #1d4ed8;
-  border: 2px solid #bfdbfe;
+  background: var(--color-surface-alt);
+  color: var(--color-dark);
+  border: 2px solid var(--color-border);
   font-weight: 600;
 }
 
 .btn-message:hover {
-  background: #dbeafe;
-  border-color: #93c5fd;
+  background: var(--color-dark);
+  color: var(--color-primary);
+  border-color: var(--color-dark);
 }
 
 /* Seller Card */
@@ -291,7 +292,7 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--color-primary), #14532d);
+  background: var(--gradient-profile);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -326,19 +327,19 @@
 
 /* Safety note */
 .safety-note {
-  background: #f0fdf4;
-  border: 1px solid #bbf7d0;
+  background: var(--color-primary-bg);
+  border: 1px solid rgba(212, 175, 55, 0.35);
   border-radius: var(--radius);
   padding: 1rem 1.25rem;
   font-size: 0.85rem;
-  color: #15803d;
+  color: var(--color-primary-dark);
   line-height: 1.6;
 }
 
 /* ── RELATED LISTINGS ────────────────────────────── */
 
 .related-section {
-  background: #f8fafc;
+  background: var(--color-light);
   padding: 3.5rem 2rem;
   border-top: 1px solid var(--color-border);
   margin-top: 3rem;

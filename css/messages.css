@@ -105,14 +105,14 @@
   align-items: flex-start;
   gap: 0.85rem;
   padding: 1rem 1.25rem;
-  border-bottom: 1px solid #f1f5f9;
+  border-bottom: 1px solid var(--color-surface-alt);
   cursor: pointer;
   transition: background 0.15s;
   position: relative;
 }
 
-.conversation-item:hover    { background: #f8fafc; }
-.conversation-item.active   { background: #f0fdf4; }
+.conversation-item:hover    { background: var(--color-light); }
+.conversation-item.active   { background: var(--color-primary-bg); }
 .conversation-item.unread   { background: #fafffe; }
 
 .conv-avatar {
@@ -135,7 +135,7 @@
   right: 1px;
   width: 10px;
   height: 10px;
-  background: #22c55e;
+  background: var(--color-primary);
   border-radius: 50%;
   border: 2px solid white;
 }
@@ -208,7 +208,7 @@
 .chat-window {
   display: flex;
   flex-direction: column;
-  background: #f8fafc;
+  background: var(--color-light);
   overflow: hidden;
 }
 
@@ -296,7 +296,7 @@
 
 .chat-header-status {
   font-size: 0.75rem;
-  color: #22c55e;
+  color: var(--color-primary);
   font-weight: 500;
 }
 
@@ -308,7 +308,7 @@
 }
 
 .chat-action-btn {
-  background: #f1f5f9;
+  background: var(--color-surface-alt);
   border: none;
   width: 34px;
   height: 34px;
@@ -338,7 +338,7 @@
   font-size: 2rem;
   width: 44px;
   height: 44px;
-  background: #f1f5f9;
+  background: var(--color-surface-alt);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -452,7 +452,7 @@
 
 .message-row.sent .message-bubble {
   background: var(--color-primary);
-  color: white;
+  color: var(--color-dark);
   border-bottom-right-radius: 4px;
 }
 
@@ -471,7 +471,7 @@
   text-align: center;
   font-size: 0.78rem;
   color: #94a3b8;
-  background: #f1f5f9;
+  background: var(--color-surface-alt);
   border-radius: 999px;
   padding: 0.35rem 1rem;
   margin: 0.25rem auto;
@@ -521,7 +521,7 @@
 }
 
 .chat-attach-btn {
-  background: #f1f5f9;
+  background: var(--color-surface-alt);
   border: none;
   width: 40px;
   height: 40px;
@@ -557,7 +557,7 @@
 
 .chat-send-btn {
   background: var(--color-primary);
-  color: white;
+  color: var(--color-dark);
   border: none;
   border-radius: 20px;
   padding: 0.6rem 1.25rem;
@@ -594,7 +594,7 @@
     position: fixed;
     inset: 65px 0 0 0;
     z-index: 100;
-    background: #f8fafc;
+    background: var(--color-light);
   }
 
   .chat-window.mobile-open {

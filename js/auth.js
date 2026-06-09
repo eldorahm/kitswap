@@ -26,7 +26,7 @@ function checkPasswordStrength(pw) {
     { pct:'25%',  color:'#ef4444', text:'Weak' },
     { pct:'50%',  color:'#f97316', text:'Fair' },
     { pct:'75%',  color:'#eab308', text:'Good' },
-    { pct:'100%', color:'#16a34a', text:'Strong' },
+    { pct:'100%', color:'#D4AF37', text:'Strong' },
   ];
   const lvl = pw.length === 0 ? levels[0] : levels[score];
   bar.style.width      = lvl.pct;

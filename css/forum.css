@@ -1,7 +1,7 @@
 /* ── FORUM HERO ───────────────────────────────────── */
 
 .forum-hero {
-  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #14532d 100%);
+  background: var(--gradient-hero);
   padding: 3rem 2rem 0;
 }
 
@@ -110,7 +110,7 @@
 }
 
 .cat-btn:hover  { border-color: var(--color-primary); color: var(--color-primary); }
-.cat-btn.active { background: var(--color-primary); border-color: var(--color-primary); color: white; }
+.cat-btn.active { background: var(--color-primary); border-color: var(--color-primary); color: var(--color-dark); }
 
 .forum-search-wrap {
   display: flex;
@@ -150,7 +150,7 @@
 .forum-sort-tabs {
   display: flex;
   gap: 0.25rem;
-  background: #f1f5f9;
+  background: var(--color-surface-alt);
   border-radius: var(--radius);
   padding: 0.25rem;
 }
@@ -229,8 +229,8 @@
   font-weight: 700;
   padding: 0.2rem 0.6rem;
   border-radius: 999px;
-  background: #dcfce7;
-  color: #15803d;
+  background: var(--color-primary-bg-alt);
+  color: var(--color-primary-dark);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -240,7 +240,7 @@
   font-weight: 600;
   padding: 0.18rem 0.55rem;
   border-radius: 999px;
-  background: #f1f5f9;
+  background: var(--color-surface-alt);
   color: var(--color-grey);
 }
 
@@ -421,7 +421,7 @@
   gap: 1rem;
   margin-bottom: 1.5rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid #f1f5f9;
+  border-bottom: 1px solid var(--color-surface-alt);
 }
 
 .forum-post:last-child { border-bottom: none; }
@@ -457,8 +457,8 @@
 }
 
 .post-author-op {
-  background: #dcfce7;
-  color: #15803d;
+  background: var(--color-primary-bg-alt);
+  color: var(--color-primary-dark);
   font-size: 0.65rem;
   font-weight: 700;
   padding: 0.15rem 0.5rem;
@@ -482,7 +482,7 @@
 .post-text blockquote {
   border-left: 3px solid var(--color-primary);
   padding: 0.5rem 1rem;
-  background: #f8fafc;
+  background: var(--color-light);
   border-radius: 0 6px 6px 0;
   color: var(--color-grey);
   font-style: italic;
@@ -573,7 +573,7 @@
 }
 
 .fmt-btn {
-  background: #f1f5f9;
+  background: var(--color-surface-alt);
   border: 1px solid var(--color-border);
   border-radius: 6px;
   width: 30px;
@@ -632,7 +632,7 @@
 .online-dot {
   width: 8px;
   height: 8px;
-  background: #22c55e;
+  background: var(--color-primary);
   border-radius: 50%;
   flex-shrink: 0;
 }
@@ -648,7 +648,7 @@
 }
 
 .popular-tag {
-  background: #f1f5f9;
+  background: var(--color-surface-alt);
   border: 1px solid var(--color-border);
   color: var(--color-grey);
   font-size: 0.78rem;
@@ -660,7 +660,7 @@
 }
 
 .popular-tag:hover {
-  background: #dcfce7;
+  background: var(--color-primary-bg-alt);
   border-color: #bbf7d0;
   color: var(--color-primary);
 }

@@ -2,7 +2,7 @@
 
 .auth-body {
   min-height: 100vh;
-  background: #f8fafc;
+  background: var(--color-light);
   display: flex;
   flex-direction: column;
 }
@@ -136,7 +136,7 @@
 
 .form-group input:focus {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.12);
+  box-shadow: 0 0 0 3px var(--gold-ring);
 }
 
 .form-group input.error {
@@ -185,11 +185,11 @@
 
 .input-prefix-wrap:focus-within {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.12);
+  box-shadow: 0 0 0 3px var(--gold-ring);
 }
 
 .input-prefix {
-  background: #f1f5f9;
+  background: var(--color-surface-alt);
   padding: 0.75rem 0.75rem;
   font-size: 0.85rem;
   color: var(--color-grey);
@@ -348,7 +348,7 @@
 }
 
 .social-btn:hover {
-  background: #f8fafc;
+  background: var(--color-light);
   border-color: #cbd5e1;
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
@@ -369,7 +369,7 @@
 /* ── RIGHT VISUAL PANEL ───────────────────────────── */
 
 .auth-visual {
-  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #14532d 100%);
+  background: var(--gradient-hero);
   padding: 3rem 2.5rem;
   display: flex;
   align-items: center;
@@ -382,7 +382,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 70% 30%, rgba(22,163,74,0.2) 0%, transparent 65%);
+  background: radial-gradient(ellipse at 70% 30%, var(--gold-glow-strong) 0%, transparent 65%);
 }
 
 .auth-visual-content {
