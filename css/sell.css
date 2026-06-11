@@ -1,5 +1,79 @@
 /* ── PAGE HEADER (reuse from browse) ─────────────── */
 
+/* ── RETRO GOLD SCANNER (STRANICA ZA PRODAJU) ────────────────────────────── */
+
+/* Polje za prevlačenje/unos slike (Dropzone) */
+.image-upload, .upload-area, .image-preview-container, .dropzone {
+  background-color: #050505 !important; /* Duboka crna pozadina */
+  border: 2px dashed var(--color-primary) !important; /* Zlatna isprekidana granica */
+  color: var(--color-primary) !important; /* Zlatni tekst */
+  font-family: 'VT323', monospace !important;
+  text-transform: uppercase !important;
+  border-radius: 0 !important;
+  position: relative !important;
+  overflow: hidden !important;
+  min-height: 250px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: inset 0px 0px 15px rgba(212, 175, 55, 0.1) !important; /* Blagi zlatni sjaj unutra */
+}
+
+/* Hover efekat kad prevlačite sliku */
+.image-upload:hover, .upload-area:hover, .dropzone:hover {
+  background-color: #111 !important;
+  border-style: solid !important; /* Granica postaje puna kad se pređe mišem */
+  cursor: crosshair !important;
+  box-shadow: inset 0px 0px 25px rgba(212, 175, 55, 0.3) !important;
+}
+
+/* Animirana zlatna SKENER linija koja ide gore-dole */
+.image-upload::before, .upload-area::before, .dropzone::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 4px !important;
+  background-color: var(--color-primary) !important;
+  box-shadow: 0px 0px 15px var(--color-primary) !important;
+  animation: scanline 3s linear infinite !important;
+  z-index: 10 !important;
+  opacity: 0.8 !important;
+  pointer-events: none !important;
+}
+
+/* Animacija kretanja skenera */
+@keyframes scanline {
+  0% { top: 0%; opacity: 0; }
+  10% { opacity: 0.8; }
+  50% { top: 100%; opacity: 0.8; }
+  90% { opacity: 0.8; }
+  100% { top: 0%; opacity: 0; }
+}
+
+/* Tekst i ikonice unutar skenera koji trepere (Blinking prompt) */
+.upload-text, .upload-icon, .dropzone p, .image-upload span {
+  animation: blinkText 2s infinite !important;
+  text-shadow: 2px 2px 0px #000 !important;
+  z-index: 2 !important;
+}
+
+/* Animacija treperenja teksta */
+@keyframes blinkText {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Glavni okvir forme (ako postoji wrapper) */
+.sell-form, .sell-container {
+  background-color: #000 !important;
+  border: 3px solid var(--color-primary) !important;
+  padding: 2rem !important;
+  box-shadow: 8px 8px 0px #000 !important;
+}
+
 .page-header {
   background: var(--gradient-hero);
   padding: 3rem 2rem;

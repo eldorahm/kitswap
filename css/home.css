@@ -1,5 +1,104 @@
 /* ── HERO ────────────────────────────────────────── */
 
+/* ── ARCADE TITLE SCREEN (HERO) ────────────────────────────────────────── */
+
+.hero {
+  min-height: 90vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  background-color: #000 !important;
+  background-image: 
+    linear-gradient(rgba(212, 175, 55, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 175, 55, 0.1) 1px, transparent 1px) !important;
+  background-size: 40px 40px !important; /* Retro grid u pozadini */
+  position: relative !important;
+  border-bottom: 4px solid var(--color-primary) !important;
+}
+
+.hero-content {
+  position: relative !important;
+  z-index: 10 !important;
+  background: #000 !important;
+  padding: 3rem !important;
+  border: 4px solid var(--color-primary) !important;
+  box-shadow: 12px 12px 0px rgba(212, 175, 55, 0.5) !important;
+}
+
+/* ASCII Art i Logo */
+.arcade-logo pre {
+  font-family: monospace !important;
+  color: var(--color-primary) !important;
+  font-size: 1rem !important;
+  line-height: 1.1 !important;
+  margin-bottom: 0 !important;
+  text-shadow: 0px 0px 5px var(--color-primary) !important;
+}
+
+.arcade-logo h1 {
+  font-family: 'VT323', monospace !important;
+  font-size: 6rem !important;
+  color: #fff !important;
+  margin: 0 !important;
+  letter-spacing: 5px !important;
+  text-transform: uppercase !important;
+  text-shadow: 
+    4px 4px 0px var(--color-primary),
+    8px 8px 0px #ff0000 !important; /* 3D hromatski efekat */
+}
+
+/* Trepereći "KICK OFF" tekst */
+.insert-coin {
+  margin: 2rem 0 !important;
+}
+
+.kick-off-text {
+  font-family: 'VT323', monospace !important;
+  font-size: 2.5rem !important;
+  color: #00ff00 !important; /* Arkadno zelena */
+  text-transform: uppercase !important;
+  animation: blinkFast 1s steps(2, start) infinite !important;
+  text-shadow: 0px 0px 10px #00ff00 !important;
+}
+
+@keyframes blinkFast {
+  to { visibility: hidden; }
+}
+
+/* Arkadni opis */
+.arcade-desc {
+  font-family: 'VT323', monospace !important;
+  color: #aaa !important;
+  font-size: 1.2rem !important;
+  margin-bottom: 2rem !important;
+  letter-spacing: 2px !important;
+}
+
+/* Dugmad kao arkadne kontrole */
+.hero-buttons {
+  display: flex !important;
+  gap: 2rem !important;
+  justify-content: center !important;
+}
+
+.arcade-btn {
+  font-family: 'VT323', monospace !important;
+  font-size: 1.5rem !important;
+  padding: 1rem 2rem !important;
+  background-color: transparent !important;
+  border: 4px solid var(--color-primary) !important;
+  color: var(--color-primary) !important;
+  text-shadow: none !important;
+  transition: all 0.1s !important;
+}
+
+.arcade-btn:hover {
+  background-color: var(--color-primary) !important;
+  color: #000 !important;
+  transform: scale(1.1) !important;
+}
+
 .hero {
   min-height: 90vh;
   display: flex;
@@ -568,4 +667,106 @@
     flex-direction: column;
     text-align: center;
   }
+}
+
+/* ── CANTONA QUOTE ────────────────────────────── */
+
+.cantona-quote-section {
+  background-color: #050505 !important; /* Jako tamna pozadina za kontrast */
+  border-top: 2px dashed #444 !important;
+  border-bottom: 2px dashed #444 !important;
+  padding: 4rem 2rem !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+.cantona-quote {
+  max-width: 900px !important;
+  margin: 0 auto !important;
+  font-family: 'VT323', monospace !important;
+}
+
+/* Sam citat (Italic i bijel) */
+.cantona-quote p {
+  color: #fff !important;
+  font-size: 2.2rem !important;
+  font-style: italic !important;
+  letter-spacing: 1.5px !important;
+  line-height: 1.4 !important;
+  margin-bottom: 1.5rem !important;
+  text-shadow: 2px 2px 0px #000 !important;
+}
+
+/* Autor citata (Cantona u zlatnoj boji) */
+.cantona-quote cite {
+  color: var(--color-primary) !important; /* Naša prepoznatljiva zlatna */
+  font-size: 1.6rem !important;
+  font-style: normal !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  text-shadow: 2px 2px 0px #000 !important;
+  display: block !important;
+}
+
+/* ── SAVRŠEN SCALING I RETRO IZGLED ZA KARTICE KATEGORIJA ── */
+
+/* 1. Stilizacija same kartice (Tamna pozadina, oštri uglovi) */
+.category-card {
+  background-color: #ffffff !important;
+  border: 2px solid #333 !important;
+  border-radius: 0 !important; /* Retro arkadni oštri uglovi */
+  padding: 1.5rem 1rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  min-height: 220px !important; /* Osiguravamo da sve kartice budu iste visine */
+  transition: all 0.2s ease !important;
+  text-decoration: none !important;
+}
+
+/* 2. Fiksiramo kontejner za sliku (Ovo rješava problem različitih veličina) */
+.category-icon {
+  width: 100% !important;
+  height: 110px !important; /* Svaka slika dobija tačno ovoliko prostora u visinu */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 1rem !important;
+  background: transparent !important;
+}
+
+/* 3. Savršeno skaliranje samih slika (logoa) */
+.category-card img,
+.cat-icon-img {
+  max-width: 90% !important; /* Ne dozvoljavamo da slika dodiruje ivice kartice */
+  max-height: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important; /* Ključni detalj: slika se smanjuje/povećava proporcionalno, bez odsijecanja */
+  filter: drop-shadow(2px 2px 0px #000) !important; /* Blaga sjenka za dubinu */
+}
+
+/* 4. Sređivanje teksta unutar kartice (da se vidi na tamnoj pozadini) */
+.category-card h3 {
+  color: #000000 !important;
+  font-family: 'VT323', monospace !important;
+  font-size: 1.4rem !important;
+  letter-spacing: 1px !important;
+  text-align: center !important;
+  margin: 0 0 5px 0 !important;
+}
+
+/* Ako imate onaj sitni tekst za broj dresova */
+.category-card span {
+  color: #888 !important;
+  font-family: 'VT323', monospace !important;
+  font-size: 1.1rem !important;
+}
+
+/* 5. Arkadni hover efekat */
+.category-card:hover {
+  border-color: var(--color-primary) !important;
+  transform: translateY(-5px) !important;
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.15) !important;
 }

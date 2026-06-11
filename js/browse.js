@@ -6,10 +6,6 @@ let filtered     = [];
 let visibleCount = PAGE_SIZE;
 let isLoading    = false;
 
-const condLabels = {
-  mint:'Mint', excellent:'Excellent',
-  'very-good':'Very Good', good:'Good', fair:'Fair'
-};
 
 /* ── INIT ─────────────────────────────────────────── */
 

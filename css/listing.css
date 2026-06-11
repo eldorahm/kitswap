@@ -472,3 +472,60 @@
   .listing-specs { grid-template-columns: 1fr; }
   .breadcrumb-bar { padding: 0.75rem 1rem; }
 }
+
+/* ── MREŽA OGLASA "MORE FROM SELLER" (#relatedListings) ── */
+
+#relatedListings {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important; 
+  gap: 1.5rem !important; 
+  align-items: start !important;
+}
+
+/* Uklanjamo margine na samim karticama i prilagođavamo širinu */
+#relatedListings .listing-card {
+  margin-bottom: 0 !important;
+  width: 100% !important; 
+}
+
+/* Smanjujemo naslove na tim karticama da se ljepše uklope */
+#relatedListings .listing-card h3 {
+  font-size: 1.1rem !important;
+}
+
+/* ── POPRAVAK VIDLJIVOSTI TEKSTA NA STRANICI OGLASA ── */
+
+/* Glavni naslov dresa i podnaslovi */
+.listing-details h1, 
+.listing-details h2,
+.product-title,
+.listing-title {
+  color: #fff !important; /* Bijela boja za maksimalnu vidljivost */
+  text-shadow: 2px 2px 0px #000 !important; /* Crna sjenka da se još više istakne */
+}
+
+/* Sitni tekst pored cijene (+ postage) */
+.postage-text,
+.price-addon,
+.postage-fee,
+.listing-price span {
+  color: #ccc !important; /* Svijetlo siva da ne krade pažnju sa zlatne cijene */
+  font-size: 1.2rem !important;
+}
+
+/* Naslov DESCRIPTION */
+.listing-desc h3 {
+  color: var(--color-primary) !important; 
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  border-bottom: 2px dashed #444 !important;
+  padding-bottom: 10px !important;
+  margin-bottom: 15px !important;
+}
+
+/* Sam tekst opisa (Rare find...) */
+#listingDesc {
+  color: #eee !important; 
+  line-height: 1.6 !important;
+  font-size: 1.2rem !important;
+}

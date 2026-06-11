@@ -1,5 +1,67 @@
 /* ── PROFILE HEADER ──────────────────────────────── */
 
+/* ── RPG CHARACTER SHEET (PROFILE) ────────────────────────────── */
+
+.profile-header-wrap {
+  background-color: #000 !important;
+  color: #fff !important;
+  border: 4px solid #fff !important;
+  box-shadow: 8px 8px 0px #000 !important;
+  padding: 2rem !important;
+  border-radius: 0 !important;
+}
+
+#profileName {
+  font-family: 'VT323', monospace !important;
+  font-size: 3.5rem !important;
+  color: #ffd700 !important; /* Zlatna RPG boja */
+  text-transform: uppercase;
+  text-shadow: 3px 3px 0px #ff0000 !important;
+  border-bottom: 2px dashed #fff !important;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+/* Kockasti avatar s retro bojama */
+.profile-avatar, #profileAvatar {
+  border: 4px solid #fff !important;
+  border-radius: 0 !important; /* Ubijamo krug, vraćamo kocku */
+  box-shadow: 4px 4px 0px #555 !important;
+  background-color: #222 !important;
+  color: #00ff00 !important;
+  font-family: 'VT323', monospace !important;
+  font-size: 3rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Kontejner za statistiku */
+.profile-stats, #profileStats {
+  background: #222 !important;
+  border: 2px solid #fff !important;
+  padding: 1rem !important;
+  margin-top: 1.5rem !important;
+  font-family: 'VT323', monospace !important;
+  color: #fff !important;
+  font-size: 1.4rem !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Same brojke unutar statistike (Skill points) */
+.profile-stats span, #profileRating, #profileSales, #profileSwaps {
+  color: #00ff00 !important; /* Hakersko zelena */
+  font-size: 2rem !important;
+  background: #000 !important;
+  border: 2px solid #555 !important;
+  padding: 0.2rem 0.8rem !important;
+  margin-right: 10px !important;
+  margin-left: 15px !important;
+  box-shadow: inset 2px 2px 0px #000;
+  display: inline-block;
+}
+
 .profile-header-wrap {
   background: var(--gradient-hero);
   padding: 3rem 2rem 0;
@@ -555,4 +617,86 @@
   .profile-rating-row { justify-content: center; }
   .profile-tags { justify-content: center; }
   .profile-actions { flex-direction: row; justify-content: center; }
+}
+
+/* ── MREŽA OGLASA NA PROFILU (MANJE KARTICE, JEDNA DO DRUGE) ── */
+
+/* Ciljamo kontejner koji drži oglase na profilu */
+.profile-listings, 
+#profileListings, 
+.user-listings-grid,
+.profile-content .listings-grid {
+  display: grid !important;
+  /* Ovdje diktiramo veličinu: kartica neće biti uža od 180px, a širit će se da popuni prazan prostor */
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important; 
+  gap: 1.5rem !important; /* Razmak između kartica */
+  align-items: start !important;
+}
+
+/* Osiguravamo da same kartice unutar profila nemaju stare margine koje ih guraju dolje */
+.profile-listings .listing-card,
+#profileListings .listing-card,
+.user-listings-grid .listing-card {
+  margin-bottom: 0 !important;
+  width: 100% !important; 
+}
+
+/* Naslovi dresova na profilu neka budu malo manji zbog manjih kartica */
+.profile-listings .listing-card h3,
+#profileListings .listing-card h3 {
+  font-size: 1.1rem !important;
+}
+
+/* ── UKLANJANJE BIJELIH OKVIRA S PROFILA ── */
+
+/* 1. Uklanjamo bijeli okvir oko cijelog zaglavlja (ako ga ima) */
+.profile-header-wrap, 
+.profile-header,
+.profile-top-section {
+  border: none !important; 
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* 2. Zlatni okvir oko Avatara umjesto debelog bijelog */
+.profile-avatar, 
+#profileAvatar {
+  border: 2px solid var(--color-primary) !important; 
+  box-shadow: 4px 4px 0px #000 !important;
+}
+
+/* 3. Suptilni tamni okvir oko statistike (Sales, Swaps...) */
+.profile-stats, 
+#profileStats {
+  border: 2px dashed #333 !important; /* Tamno siva isprekidana linija */
+  background: #050505 !important; /* Jako tamna pozadina, skoro crna */
+}
+
+/* 4. Popravak one bijele pozadine na dnu (Tabovi: Listings, Reviews...) */
+.profile-tabs, 
+.nav-tabs, 
+.tabs-wrapper, 
+.profile-nav {
+  background-color: transparent !important; /* Ubijamo bijelu pozadinu */
+  border-bottom: 2px solid #333 !important; /* Suptilna linija ispod tabova */
+  margin-top: 1rem !important;
+}
+
+/* Boja teksta za tabove da se vide na mraku */
+.profile-tabs a, 
+.profile-tabs button,
+.nav-tabs a, 
+.tab-link {
+  color: #888 !important; /* Siva za neaktivne tabove */
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Aktivan tab (npr. Listings) u zlatnoj boji */
+.profile-tabs a.active, 
+.profile-tabs button.active,
+.nav-tabs a.active, 
+.tab-link.active {
+  color: var(--color-primary) !important;
+  border-bottom: 2px solid var(--color-primary) !important;
 }

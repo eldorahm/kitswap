@@ -1,10 +1,5 @@
 /* ── PROFILE PAGE — profile.js (Supabase connected) ── */
 
-const condLabels = {
-  mint:'Mint', excellent:'Excellent',
-  'very-good':'Very Good', good:'Good', fair:'Fair'
-};
-
 let isFollowing  = false;
 let activeFilter = 'all';
 let profileUser  = null;

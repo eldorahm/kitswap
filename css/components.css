@@ -1,14 +1,61 @@
 /* ── BUTTONS ─────────────────────────────────────── */
 
+/* ── RETRO CRT EFEKAT ZA SLIKE ────────────────────────────── */
+
+.listing-card-img {
+  position: relative !important;
+  overflow: hidden !important;
+  border-bottom: 2px solid #000 !important;
+}
+
+.listing-card-img img {
+  image-rendering: pixelated !important;
+  filter: grayscale(100%) contrast(120%) sepia(20%) !important;
+  transition: all 0.2s ease-in-out !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+/* Hover efekat */
+.listing-card:hover .listing-card-img img {
+  filter: grayscale(0%) contrast(100%) sepia(0%) !important;
+  transform: scale(1.1) !important;
+}
+
+/* Lažne TV Scanlines */
+.listing-card-img::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important; 
+  left: 0 !important; 
+  width: 100% !important; 
+  height: 100% !important;
+  background: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.2) 50%) !important;
+  background-size: 100% 4px !important;
+  pointer-events: none !important;
+  z-index: 10 !important;
+}
+
 .btn {
   display: inline-block;
   padding: 0.6rem 1.4rem;
-  border-radius: var(--radius);
   font-weight: 600;
   font-size: 0.95rem;
   cursor: pointer;
-  border: 2px solid transparent;
-  transition: all 0.2s ease;
+  /* Retro oštri rubovi i tvrda sjena: */
+  border-radius: 0 !important;
+  border: 2px solid #000;
+  box-shadow: 4px 4px 0px #000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.1s ease;
+}
+
+/* Dodajte i ovo pravilo za "klik" efekat */
+.btn:active {
+  box-shadow: 0px 0px 0px #000;
+  transform: translate(4px, 4px);
 }
 
 .btn-primary {
@@ -151,4 +198,112 @@
   background-color: rgba(255, 255, 255, 0.1);
   border-color: white;
   color: white;
+
+/* ── CHUNKY INPUT FIELDS ────────────────────────────── */
+
+input[type="text"], 
+input[type="number"], 
+input[type="password"],
+input[type="email"],
+select, 
+textarea {
+  font-family: 'VT323', monospace;
+  font-size: 1.2rem;
+  border: 2px solid #000 !important;
+  border-radius: 0 !important;
+  padding: 0.5rem;
+  box-shadow: 2px 2px 0px #000 !important;
+  background-color: white;
+  transition: all 0.1s ease;
+  width: 100%;
+  box-sizing: border-box;
 }
+
+/* Kad klikneš da kucaš, polje požuči kao retro terminal */
+input:focus, 
+select:focus, 
+textarea:focus {
+  outline: none;
+  background-color: #fef9c3; 
+  box-shadow: 4px 4px 0px #000 !important;
+}
+
+/* ── RETRO NAVBAR (GLAVNI MENI) ────────────────── */
+
+.navbar {
+  background: #000 !important; /* Oštra crna boja umjesto moderne tamno sive */
+  border-bottom: 4px solid var(--color-primary) !important; /* Debela zlatna granica */
+  box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.5) !important; /* Oštra sjenka ispod navigacije */
+}
+
+/* Kockasti, PS1 efekat za logo */
+.nav-logo {
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0px var(--color-primary); /* Lažni 3D efekat teksta */
+  letter-spacing: 2px;
+  color: white !important;
+}
+
+/* Linkovi u meniju */
+.nav-links a {
+  font-family: 'VT323', monospace !important;
+  font-size: 1.5rem !important; /* Povećavamo piksel font da bude čitljiviji */
+  text-transform: uppercase;
+  color: white !important;
+  letter-spacing: 1px;
+}
+
+/* Hover efekat kada se mišem pređe preko linka */
+.nav-links a:hover {
+  color: var(--color-primary) !important;
+  background-color: #222; /* Kockasti highlight */
+  padding: 0.2rem 0.5rem;
+  margin: -0.2rem -0.5rem; /* Zadržava link na mjestu uprkos paddingu */
+}
+
+/* ── RETRO MODAL (POP-UP PROZORI) ────────────────── */
+
+/* Glavni okvir prozora */
+.modal-content, .modal-inner {
+  background-color: #c0c0c0 !important; /* Retro sistemska siva pozadina */
+  border: 3px solid #000 !important;
+  border-radius: 0 !important; /* Bez ikakvog zaobljavanja */
+  box-shadow: 8px 8px 0px rgba(0, 0, 0, 1) !important; /* Masivna crna sjena */
+  padding: 2rem !important;
+  color: #000 !important;
+}
+
+/* Naslovi unutar prozora */
+.modal-content h1, 
+.modal-content h2, 
+.modal-content h3 {
+  font-family: 'VT323', monospace !important;
+  text-transform: uppercase;
+  border-bottom: 3px solid #000;
+  padding-bottom: 0.5rem;
+  margin-top: 0;
+  letter-spacing: 1px;
+}
+
+/* Dugme za zatvaranje (X) na vrhu prozora */
+.close, .close-btn, .modal-close {
+  background-color: transparent !important;
+  color: #000 !important;
+  border: none !important;
+  font-size: 2rem !important;
+  font-family: 'VT323', monospace !important;
+  font-weight: bold;
+  text-shadow: 2px 2px 0px #fff;
+  transition: all 0.1s ease;
+  cursor: pointer;
+}
+
+/* Hover efekat za "X" dugme */
+.close:hover, .close-btn:hover, .modal-close:hover {
+  color: #ff0000 !important; /* Vrišteća crvena kad pređeš mišem */
+  transform: translate(2px, 2px);
+  text-shadow: none;
+}
+
+}
+

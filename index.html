@@ -14,7 +14,9 @@
     <!-- ── NAVIGATION ───────────────────────────── -->
     <nav class="navbar">
       <div class="nav-container">
-        <a href="index.html" class="nav-logo">⚽ KitSwap</a>
+    <a href="index.html" class="nav-logo">
+  <img src="assets/images/logo.png" alt="Kitswap Logo" class="real-logo">
+</a>
         <ul class="nav-links">
           <li><a href="browse.html">Browse</a></li>
           <li><a href="sell.html">Sell a Shirt</a></li>
@@ -34,44 +36,31 @@
     <!-- ── HERO ──────────────────────────────────── -->
     <section class="hero">
       <div class="hero-content">
-        <div class="hero-badge">🏆 #1 Football Shirt Marketplace</div>
-        <h1>Buy, Sell &amp; Swap <br /><span>Football Shirts</span></h1>
-        <p>The dedicated marketplace for football shirt collectors.
-           Find rare kits, sell your duplicates, or swap with fellow fans worldwide.</p>
-        <div class="hero-buttons">
-          <a href="browse.html" class="btn btn-primary btn-large">Browse Shirts</a>
-          <a href="sell.html" class="btn btn-outline btn-large">Sell a Shirt</a>
+        
+        <div class="arcade-logo">
+
+          <h1>KITSWAP</h1>
         </div>
-        <div class="hero-search">
-          <input type="text" placeholder="Search by club, player, season..." id="heroSearch" />
-          <button class="btn btn-primary" onclick="handleSearch()">Search</button>
+
+        <div class="insert-coin">
+          <span class="kick-off-text">>> KICK OFF <<</span>
+        </div>
+
+        <p class="arcade-desc">FOOTBALL SHIRT MARKETPLACE.</p>
+
+        <div class="hero-buttons">
+          <a href="browse.html" class="btn btn-primary btn-large arcade-btn">PLAYER 1: BROWSE</a>
+          <a href="sell.html" class="btn btn-outline btn-large arcade-btn">PLAYER 2: SELL</a>
         </div>
       </div>
     </section>
 
-    <!-- ── STATS BAR ──────────────────────────────── -->
-    <section class="stats-bar">
-      <div class="stats-container">
-        <div class="stat-item">
-          <span class="stat-number">12,400+</span>
-          <span class="stat-label">Shirts Listed</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <span class="stat-number">8,200+</span>
-          <span class="stat-label">Collectors</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <span class="stat-number">95%</span>
-          <span class="stat-label">Positive Ratings</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <span class="stat-number">60+</span>
-          <span class="stat-label">Countries</span>
-        </div>
-      </div>
+    <!-- ── CANTONA QUOTE ──────────────────────────────────── -->
+    <section class="cantona-quote-section">
+      <blockquote class="cantona-quote">
+        <p><i>"You can change your wife, your politics, your religion. But never, never can you change your favourite football team."</i></p>
+        <cite>- Eric Cantona</cite>
+      </blockquote>
     </section>
 
     <!-- ── CATEGORIES ─────────────────────────────── -->
@@ -82,36 +71,51 @@
           <p>Find exactly what you're looking for</p>
         </div>
         <div class="categories-grid">
-          <a href="browse.html?cat=premier-league" class="category-card">
-            <div class="category-icon">🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
-            <h3>Premier League</h3>
-            <span>3,200+ shirts</span>
-          </a>
-          <a href="browse.html?cat=la-liga" class="category-card">
-            <div class="category-icon">🇪🇸</div>
-            <h3>La Liga</h3>
-            <span>1,800+ shirts</span>
-          </a>
-          <a href="browse.html?cat=serie-a" class="category-card">
-            <div class="category-icon">🇮🇹</div>
-            <h3>Serie A</h3>
-            <span>1,400+ shirts</span>
-          </a>
-          <a href="browse.html?cat=bundesliga" class="category-card">
-            <div class="category-icon">🇩🇪</div>
-            <h3>Bundesliga</h3>
-            <span>1,100+ shirts</span>
-          </a>
-          <a href="browse.html?cat=national" class="category-card">
-            <div class="category-icon">🌍</div>
-            <h3>National Teams</h3>
-            <span>2,100+ shirts</span>
-          </a>
-          <a href="browse.html?cat=retro" class="category-card category-card--highlight">
-            <div class="category-icon">📼</div>
-            <h3>Retro &amp; Vintage</h3>
-            <span>2,800+ shirts</span>
-          </a>
+  <a href="browse.html?cat=premier-league" class="category-card">
+    <div class="category-icon">
+      <img src="assets/images/prem.png" alt="Premier League" class="cat-icon-img">
+    </div>
+    <h3>Premier League</h3>
+  </a>
+          <!-- La Liga -->
+  <a href="browse.html?cat=la-liga" class="category-card">
+    <div class="category-icon">
+      <img src="assets/images/laliga.png" alt="La Liga" class="cat-icon-img">
+    </div>
+    <h3>La Liga</h3>
+  </a>
+
+  <!-- Serie A -->
+  <a href="browse.html?cat=serie-a" class="category-card">
+    <div class="category-icon">
+      <img src="assets/images/seria.png" alt="Serie A" class="cat-icon-img">
+    </div>
+    <h3>Serie A</h3>
+  </a>
+
+  <!-- Bundesliga -->
+  <a href="browse.html?cat=bundesliga" class="category-card">
+    <div class="category-icon">
+      <img src="assets/images/bundes.png" alt="Bundesliga" class="cat-icon-img">
+    </div>
+    <h3>Bundesliga</h3>
+  </a>
+
+  <!-- National Teams -->
+  <a href="browse.html?cat=national" class="category-card">
+    <div class="category-icon">
+      <img src="assets/images/inter.png" alt="National Teams" class="cat-icon-img">
+    </div>
+    <h3>National Teams</h3>
+  </a>
+
+  <!-- Retro & Vintage (Aktivna/Izdvojena kartica) -->
+  <a href="browse.html?cat=retro" class="category-card active-card">
+    <div class="category-icon">
+      <img src="assets/images/retro.png" alt="Retro & Vintage" class="cat-icon-img">
+    </div>
+    <h3>Retro & Vintage</h3>
+  </a>
         </div>
       </div>
     </section>
@@ -172,7 +176,9 @@
     <footer class="footer">
       <div class="footer-container">
         <div class="footer-brand">
-          <a href="index.html" class="nav-logo">⚽ KitSwap</a>
+       <a href="index.html" class="nav-logo">
+  <img src="assets/images/logo.png" alt="Kitswap Logo" class="real-logo">
+</a>
           <p>The dedicated marketplace for football shirt collectors worldwide.</p>
         </div>
         <div class="footer-links">

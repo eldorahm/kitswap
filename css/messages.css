@@ -1,5 +1,89 @@
 /* ── MESSAGES LAYOUT ─────────────────────────────── */
 
+/* ── RETRO IRC TERMINAL CHAT ────────────────────────────── */
+
+.messages-layout, .inbox-sidebar, .chat-window, .chat-header, .chat-listing-ref, .chat-input-area, .chat-empty {
+  background-color: #000 !important;
+  color: #E8C547 !important;
+  font-family: 'VT323', monospace !important;
+  border-color: #E8C547 !important;
+}
+
+/* Isprepletene terminal linije umjesto običnih granica */
+.inbox-sidebar {
+  border-right: 2px dashed #E8C547 !important;
+}
+.inbox-header, .inbox-search, .inbox-tabs, .conversation-item, .chat-header, .chat-listing-ref {
+  border-bottom: 2px dashed #E8C547 !important;
+}
+
+/* Svi tekstovi i naslovi u neonsko zelenoj boji */
+.inbox-header h2, .conv-name, .conv-preview, .chat-header-name, .chat-empty h3, .chat-empty p, .listing-ref-title, .listing-ref-price {
+  color: #E8C547 !important;
+  font-family: 'VT323', monospace !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+}
+
+/* Tamnije zelena za vrijeme i sporedne informacije */
+.conv-time, .message-time, .system-message, .chat-header-status {
+  color: #E8C547 !important;
+  background: transparent !important;
+}
+
+/* Kockasti hakerski avatari */
+.conv-avatar, .chat-header-avatar, .msg-avatar, .listing-ref-emoji {
+  border: 2px solid #E8C547 !important;
+  border-radius: 0 !important; /* Ubijamo krugove */
+  background: #000 !important;
+  color: #E8C547!important;
+  font-family: 'VT323', monospace !important;
+}
+
+/* Chat mjehurići kao sirovi terminal blokovi */
+.message-bubble {
+  background: transparent !important;
+  color: #E8C547 !important;
+  border: 1px solid #E8C547 !important;
+  border-radius: 0 !important;
+  box-shadow: 2px 2px 0px #E8C547 !important;
+  font-family: 'VT323', monospace !important;
+  text-transform: uppercase;
+}
+
+/* Poslane poruke (malo ispunjenije da se razlikuju) */
+.message-row.sent .message-bubble {
+  background: #002200 !important;
+  border: 1px solid #E8C547 !important;
+}
+
+/* Polje za unos teksta i pretragu */
+.chat-input-row textarea, .inbox-search input {
+  background: #000 !important;
+  color: #E8C547 !important;
+  border: 2px solid #E8C547 !important;
+  border-radius: 0 !important;
+  font-family: 'VT323', monospace !important;
+}
+.chat-input-row textarea:focus, .inbox-search input:focus {
+  background: #001100 !important;
+  box-shadow: 2px 2px 0px #E8C547 !important;
+}
+
+/* Bedževi za nepročitane poruke */
+.inbox-unread-total, .conv-unread-badge {
+  background: #E8C547 !important;
+  color: #000 !important;
+  border-radius: 0 !important;
+  font-family: 'VT323', monospace !important;
+}
+
+/* Hover efekti (kao odabir reda mišem u komandnoj liniji) */
+.conversation-item:hover, .conversation-item.active {
+  background: #002200 !important;
+  cursor: crosshair !important;
+}
+
 .messages-layout {
   display: grid;
   grid-template-columns: 340px 1fr;

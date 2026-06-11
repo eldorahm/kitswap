@@ -1,6 +1,6 @@
 /* ── LISTING PAGE — listing.js (Supabase connected) ── */
 
-const condLabels = {
+const listingCondLabels = {
   mint:'Mint / Unworn', excellent:'Excellent',
   'very-good':'Very Good', good:'Good', fair:'Fair'
 };
@@ -91,7 +91,7 @@ function renderBadges(l) {
   document.getElementById('listingBadges').innerHTML = `
     <span class="badge badge-${l.type}">${typeLabel}</span>
     <span class="badge badge-league">${l.league || ''}</span>
-    <span class="badge badge-condition-${l.condition}">${condLabels[l.condition] || l.condition}</span>
+    <span class="badge badge-condition-${l.condition}">${listingCondLabels[l.condition] || l.condition}</span>
     ${l.signed ? '<span class="badge" style="background:#fef9c3;color:#854d0e;">✍️ Signed</span>' : ''}
   `;
 }
@@ -113,7 +113,7 @@ function renderSpecs(l) {
     { label:'Season',    value: l.season    || '—' },
     { label:'Size',      value: l.size      || '—' },
     { label:'Brand',     value: l.brand     || '—' },
-    { label:'Condition', value: condLabels[l.condition] || l.condition },
+    { label:'Condition', value: listingCondLabels[l.condition] || l.condition },
     { label:'Player',    value: l.player    || 'No name/number' },
   ];
   document.getElementById('listingSpecs').innerHTML =
@@ -176,7 +176,7 @@ async function loadRelated(l) {
 
   grid.innerHTML = others.map(r => {
     const price   = r.type === 'swap' ? 'Swap Only' : `£${r.price}`;
-    const cond    = condLabels[r.condition] || r.condition;
+    const cond    = listingCondLabels[r.condition] || r.condition;
     const imgHtml = r.images?.[0]
       ? `<img src="${r.images[0]}" alt="${r.title}" style="width:100%;height:100%;object-fit:cover;" />`
       : (r.emoji || '👕');

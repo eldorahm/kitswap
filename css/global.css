@@ -1,4 +1,5 @@
 /* ── GLOBAL RESET & VARIABLES ───────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 *, *::before, *::after {
   margin: 0;
@@ -8,7 +9,7 @@
 
 :root {
   /* Brand — Gold, Grey, Black */
-  --color-primary:        #D4AF37;
+  --color-primary:        lch(72.84% 63.66 88.83);
   --color-primary-dark:   #B8960C;
   --color-primary-light:  #E8C547;
   --color-primary-bg:     #FDF6E3;
@@ -48,10 +49,21 @@ html {
 }
 
 body {
-  font-family: var(--font-main);
-  background-color: var(--color-light);
-  color: var(--color-dark);
-  line-height: 1.6;
+  font-family: 'VT323', monospace !important;
+  font-size: 1.2rem !important;
+  
+  /* NOVA TAMNA POZADINA */
+  background-color: #111 !important; /* Duboka tamno siva, skoro crna */
+  background-image: radial-gradient(#333 1px, transparent 0) !important; /* Tamnije dithered tačkice */
+  background-size: 4px 4px !important;
+  
+  /* SVIJETLI TEKST ZA ČITLJIVOST */
+  color: #eee !important; 
+}
+
+/* Osiguravamo da i glavni naslovi ostanu svijetli na tamnoj pozadini */
+h1, h2, h3, h4, p, span {
+  color: inherit; 
 }
 
 a {
@@ -66,4 +78,146 @@ ul {
 img {
   max-width: 100%;
   display: block;
+}
+
+/* ── RETRO SCROLLBAR ────────────────────────────── */
+
+/* Za Firefox preglednike */
+html {
+  scrollbar-width: auto;
+  scrollbar-color: var(--color-primary) #000;
+}
+
+/* Za Chrome, Edge, Opera i Safari */
+::-webkit-scrollbar {
+  width: 18px; /* Široka, masivna traka */
+  background: #000; /* Potpuno crna pozadina trake */
+  border-left: 2px solid #000;
+}
+
+/* Dio trake koji se pomiče (Thumb) */
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary); /* Boja teme (obično zlatna u vašem kodu) */
+  border: 3px solid #000; /* Oštar crni okvir unutar trake */
+  border-radius: 0; /* Ubijamo zaobljavanje */
+  box-shadow: inset 2px 2px 0px rgba(255, 255, 255, 0.3); /* Lažni 3D sjaj */
+}
+
+/* Hover efekat kada miš pređe preko scrollbara */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #fff; /* Traka pobijeli kada je korisnik uhvati */
+  cursor: grab;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: #c0c0c0; /* Stara siva boja kad se klikne i vuče */
+  box-shadow: inset -2px -2px 0px rgba(0, 0, 0, 0.5); /* Efekat pritiskanja */
+}
+
+/* Kockice na vrhu i dnu scrollbara (ako su podržane) */
+::-webkit-scrollbar-button {
+  display: none; /* Skrivamo ih za čistiji retro izgled, ali možemo ih i dodati po potrebi */
+}
+
+/* ── PRAVE SLIKE ZA LOGO I IKONE ────────────────────────────── */
+
+/* Logo u glavnom meniju */
+.real-logo {
+  height: 100px !important; /* Prilagodi ovu visinu po potrebi */
+  width: auto !important;
+  display: block;
+}
+
+/* Veliki logo na naslovnoj stranici */
+.hero-real-logo {
+  max-width: 300px !important; /* Prilagodi veličinu velikog loga */
+  height: auto !important;
+  margin-bottom: 1rem !important;
+  filter: drop-shadow(4px 4px 0px var(--color-primary)); /* Zadržavamo onaj retro sjaj oko tvoje prave slike! */
+}
+
+/* Ako su tvoje slike PIXEL ART, ostavi ovo pravilo ispod. 
+   Ako su HD moderne slike, možeš izbrisati ovo pravilo. */
+.real-logo, .hero-real-logo, .real-icon {
+  image-rendering: pixelated !important;
+}
+
+/* ── RETRO CRT DUGMAD ZA NAVIGACIJU (HEADER) ── */
+
+/* Osnovni stil za sva dugmad u navigaciji (oštri uglovi i retro font) */
+header .btn, 
+.nav-actions .btn, 
+.navbar .btn,
+.nav-buttons .btn {
+  font-family: 'VT323', monospace !important;
+  text-transform: uppercase !important;
+  font-size: 1.3rem !important;
+  letter-spacing: 2px !important;
+  border-radius: 0 !important; /* Oštri, arkadni uglovi */
+  padding: 8px 16px !important;
+  transition: all 0.1s ease-in-out !important;
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* CRT Efekat za 'šuplja' dugmad (+ SELL, LOG OUT, ikonica) */
+header .btn-outline,
+header .btn:not(.btn-primary) {
+  background-color: #000 !important;
+  color: var(--color-primary) !important;
+  border: 2px solid var(--color-primary) !important;
+  /* CRT Glow oko ivica dugmeta i unutar njega */
+  box-shadow: 0 0 6px rgba(212, 175, 55, 0.4), inset 0 0 6px rgba(212, 175, 55, 0.2) !important;
+  /* CRT Glow na samom tekstu */
+  text-shadow: 0 0 4px var(--color-primary) !important; 
+}
+
+/* CRT Efekat za puno dugme (W WILLYRED) */
+header .btn-primary,
+.nav-actions .btn-primary {
+  background-color: var(--color-primary) !important;
+  color: #000 !important;
+  border: 2px solid var(--color-primary) !important;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.6) !important;
+  text-shadow: none !important;
+  font-weight: bold !important;
+}
+
+/* Efekat prelaska mišem (Hover) - Jači CRT bljesak i blago povećanje */
+header .btn:hover,
+.nav-actions .btn:hover {
+  background-color: var(--color-primary) !important;
+  color: #000 !important;
+  box-shadow: 0 0 15px var(--color-primary), inset 0 0 10px rgba(255, 255, 255, 0.3) !important;
+  text-shadow: none !important;
+  transform: scale(1.05) !important;
+}
+
+/* Trik: Pretvaramo onaj moderni emoji za poruke u zlatni pikselizirani oblik */
+header .btn img,
+header .btn svg,
+.nav-actions .btn img {
+  filter: sepia(1) hue-rotate(5deg) saturate(500%) drop-shadow(0 0 2px var(--color-primary)) !important;
+  image-rendering: pixelated !important;
+  width: 24px !important;
+  height: 24px !important;
+}
+
+/* Za svaki slučaj, i obični linkovi u meniju (Browse, Community...) da imaju isti font */
+header a:not(.btn),
+.nav-links a {
+  font-family: 'VT323', monospace !important;
+  font-size: 1.4rem !important;
+  letter-spacing: 2px !important;
+  color: #ccc !important;
+  text-shadow: 1px 1px 0px #000 !important;
+  transition: color 0.1s !important;
+}
+
+header a:not(.btn):hover,
+.nav-links a:hover {
+  color: var(--color-primary) !important;
+  text-shadow: 0 0 5px var(--color-primary) !important; /* Sjaj na hover */
 }
